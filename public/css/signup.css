@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0, 0, 0, .5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.signup-modal.standalone {
+    display: flex;
+}
+
+.wrapper {
+    position: relative;
+    width: 450px;
+    background: #003F08;
+    border: 2px solid #B6B28E;
+    box-shadow: 0 0 10px rgba(0, 63, 8, .2);
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 22px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    border: 2px solid #B6B28E;
+    outline: none;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #343B2D;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #747B6A;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #003F08;
+}
+
+.input-box .password-toggle {
+    cursor: pointer;
+}
+
+.password-toggle {
+    cursor: pointer;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #FFFBE0;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #003F08;
+    font-weight: 600;
+}
+
+.gmail-section {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #B6B28E;
+}
+
+.divider span {
+    margin: 0 10px;
+    color: #FFFBE0;
+    font-size: 14px;
+}
+
+.gmail-section p {
+    margin: 10px 0;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.google-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #FFFBE0;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.google-letter {
+    font-size: 20px;
+    font-weight: bold;
+    color: #003F08;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #FFFBE0;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #B6B28E;
+}
