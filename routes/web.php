@@ -14,3 +14,14 @@ Route::get('/signin', function () {
 Route::get('/signup', function () {
     return view('signup');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+Route::view('/request', 'request')
+    ->name('request');
+
+Route::get('/requests/create', function () {
+    return view('request-form');
+})->name('requests.create');
