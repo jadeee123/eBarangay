@@ -123,3 +123,22 @@ Residents are the primary users of the system. They can create an account, view 
 Barangay Officials/Staff serve as the administrators of the system. They can review and process submitted requests, check the information provided by residents, update the status of requests, set claim dates, and maintain records of submitted and completed requests. The system can help officials keep requests more organized, make records easier to manage, and monitor the services that are frequently requested by residents.
 
 Overall, the completed application benefits both residents and barangay officials by providing a more organized way to handle selected barangay service requests. It helps residents access services and receive updates more conveniently, while it helps barangay officials manage requests and records in a more systematic manner.
+
+## 1.7 Definition of Terms
+
+The following terms are defined based on how they are used in the proposed system:
+
+1. **Barangay Official/Staff** – An authorized person who manages barangay services and is responsible for reviewing and processing residents' requests through the system.
+2. **Claim Date** – The scheduled date set by the barangay official when a resident can claim their requested document or receive the requested service.
+3. **Email Notification** – An electronic message sent to a resident's registered email address to provide updates about their service request.
+4. **Online Request** – A service request submitted by a resident through the web-based system without initially needing to visit the barangay office.
+5. **Request History** – A record of the previous and completed service requests submitted by a resident through the system.
+6. **Request Management** – The process of reviewing, processing, updating, and managing service requests submitted by residents.
+7. **Request Status** – The current condition or progress of a submitted request, such as Pending, Processing, Approved, or Completed.
+8. **Resident** – A person living within Barangay Cuambugan who can use the system to access selected barangay services and submit service requests.
+9. **Records Management** – The process of organizing, storing, and maintaining information about submitted and completed service requests.
+10. **Service Request** – A request made by a resident to obtain a selected barangay document or service.
+11. **Service List** – A section of the system that displays the selected barangay services available to residents and their requirements.
+12. **System Administrator** – An authorized barangay staff member who has access to administrative features for managing users, requests, services, and records.
+13. **Web-Based System** – A software application that can be accessed through a web browser using an internet connection.
+14. **Barangay Cuambugan** – The selected barangay where the proposed system will be used to manage selected resident service requests.
