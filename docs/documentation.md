@@ -113,3 +113,13 @@ For authorized barangay officials, the system will provide features for managing
 The system is limited to selected barangay services offered by Barangay Cuambugan and does not cover all possible services provided by the barangay. The system mainly focuses on the submission, monitoring, and management of service requests and does not completely replace the existing responsibilities and decision-making of barangay officials. All submitted requests still need to be reviewed and processed by authorized officials before they can be approved or completed.
 
 Some official documents or services may still require physical claiming at the barangay office even when the request has been submitted and processed through the system. The system also requires a stable internet connection for residents and barangay officials to access its online features. Email notifications depend on the resident providing a valid email address and having access to their email account. The system does not include online payment processing for barangay fees or other possible charges. Lastly, the system is specifically designed for Barangay Cuambugan and is not intended to automatically cover or manage the services of other barangays.
+
+## 1.5 Target Users / Beneficiaries
+
+The completed system is intended for residents and authorized barangay officials or staff of Barangay Cuambugan. Each user group has a different role in using the system and can benefit from the features provided.
+
+Residents are the primary users of the system. They can create an account, view available barangay services and their requirements, submit service requests online, and monitor the status of their requests. They can also receive email notifications and view the scheduled date for claiming their requested documents or services. This can help residents save time, reduce unnecessary visits to the barangay office, and make it easier for them to follow up on their requests.
+
+Barangay Officials/Staff serve as the administrators of the system. They can review and process submitted requests, check the information provided by residents, update the status of requests, set claim dates, and maintain records of submitted and completed requests. The system can help officials keep requests more organized, make records easier to manage, and monitor the services that are frequently requested by residents.
+
+Overall, the completed application benefits both residents and barangay officials by providing a more organized way to handle selected barangay service requests. It helps residents access services and receive updates more conveniently, while it helps barangay officials manage requests and records in a more systematic manner.
