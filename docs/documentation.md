@@ -33,3 +33,73 @@ Specifically, the study aims to answer the following questions:
 6. How can the system help officials set the claim date for requested documents or services?
 7. How can the system help maintain organized records of submitted and completed requests?
 8. How can the system help identify the most frequently requested barangay services or documents?
+
+# 1.3 Objectives of the Project
+
+To develop a web-based barangay service request system for Barangay Cuambugan that aims to provide residents with a more convenient and organized way to access selected barangay services. The system seeks to simplify the service request process, reduce unnecessary visits to the barangay office, allow residents to monitor their requests, provide email updates, and help barangay officials manage service requests and records more efficiently.
+
+The following are the specific objectives:
+
+# 1. Designing a Centralized Web-Based Platform
+
+Designing a centralized web-based platform that enables residents to:
+
+1. Create and manage their accounts.
+2. View available barangay services and their requirements.
+3. Submit requests for selected barangay services online.
+4. Track the status and progress of submitted requests.
+5. View previous and completed service requests.
+6. Receive email notifications regarding request updates.
+
+# 2. Implementing a Role-Based Access System
+
+Implementing a role-based access system for the following users:
+
+1. Resident.
+2. Barangay Staff/Administrator.
+
+# 3. Developing a Resident Service Request Module
+
+Developing a resident service request module that allows residents to:
+
+1. Select the barangay service they want to request.
+2. Provide the required information and documents.
+3. Submit service requests online.
+4. Monitor the status of their requests.
+5. View the scheduled date for claiming their requested documents or services.
+
+# 4. Developing a Request Management Module
+
+Developing a request management module that allows authorized barangay officials to:
+
+1. Review submitted service requests.
+2. Check the information and requirements provided by residents.
+3. Update request statuses such as Pending, Processing, Approved, or Completed.
+4. Set the scheduled claim date for requested documents or services.
+5. Maintain records of submitted and completed requests.
+
+# 5. Developing a Records Management Module
+
+Developing a records management module that helps barangay officials to:
+
+1. Maintain organized records of residents' service requests.
+2. View submitted, processed, and completed requests.
+3. Monitor frequently requested barangay services or documents.
+4. Retrieve request records when needed.
+
+# 6. Providing a Notification and Information Feature
+
+Providing a notification and information feature that enables the system to:
+
+1. Send email notifications regarding changes in request status.
+2. Inform residents about the scheduled claim date.
+3. Provide announcements or important barangay information.
+4. Keep residents informed about updates related to their requests.
+
+# 7. Ensuring a Simple and Accessible Interface
+
+Ensuring that the system provides a simple and accessible interface that allows residents and authorized barangay officials to:
+
+1. Easily navigate the system.
+2. Access the features according to their assigned user role.
+3. Submit, manage, and monitor service requests through an organized online platform.
