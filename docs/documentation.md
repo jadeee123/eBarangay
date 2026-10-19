@@ -15,3 +15,21 @@ The system will also provide a feature for setting the scheduled date for claimi
 In addition, the system can keep records of submitted and completed requests. These records can help officials monitor the number of requests received and identify which documents or services are most frequently requested. This information may also help the barangay better understand the common service needs of its residents.
 
 Overall, the proposed system aims to make the process of requesting selected barangay services more convenient, organized, and accessible. It is intended to reduce unnecessary visits, provide residents with easier access to request information and updates, and help barangay officials manage service requests and records more efficiently. Although some documents may still require physical claiming at the barangay office, the system can provide a more organized way to handle the request process from submission up to completion.
+
+
+# 1.2 Statement of the Problem
+
+The current process of requesting barangay services often requires residents to visit the barangay office to ask about available services, submit requirements, follow up on their requests, and check when their documents are ready. This can take time and may be inconvenient, especially when residents need to make several visits to the office. For barangay officials, handling and organizing multiple requests and records manually can also make the process more difficult to manage.
+
+To help address these concerns, the proposed system will provide an online platform for selected barangay services in Barangay Cuambugan. It will allow residents to view available services, submit requests, track their request status, and receive email updates. It will also allow authorized barangay staff to manage requests, update their status, set claim schedules, and maintain organized records.
+
+Specifically, the study aims to answer the following questions:
+
+1. How can the system provide residents with an easier way to view available barangay services and their requirements?
+2. How can the system allow residents to submit requests online for selected barangay services?
+3. How can the system help residents monitor the status and progress of their submitted requests?
+4. How can the system provide residents with email notifications about updates to their requests?
+5. How can the system help barangay officials review, process, and update residents' service requests?
+6. How can the system help officials set the claim date for requested documents or services?
+7. How can the system help maintain organized records of submitted and completed requests?
+8. How can the system help identify the most frequently requested barangay services or documents?
