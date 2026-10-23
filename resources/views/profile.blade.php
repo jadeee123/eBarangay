@@ -39,13 +39,6 @@
                 <i class='bx bx-chevron-right menu-arrow'></i>
             </button>
 
-            <button type="button" class="settings-menu-item"
-                    data-panel="appearance">
-                <i class='bx bx-palette'></i>
-                <span>Appearance</span>
-                <i class='bx bx-chevron-right menu-arrow'></i>
-            </button>
-
         </div>
 
         <div class="settings-content">
