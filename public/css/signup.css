@@ -1,3 +1,4 @@
+/* General settings */
 * {
     margin: 0;
     padding: 0;
@@ -5,159 +6,281 @@
     font-family: Arial, sans-serif;
 }
 
-.modal {
+/* Sign-up modal background */
+#signupModal.modal {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     display: none;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(20, 35, 30, 0.55);
     align-items: center;
     justify-content: center;
+    padding: 15px;
+    overflow-y: auto;
     z-index: 1000;
 }
 
+/* Standalone sign-up view */
 .signup-modal.standalone {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 15px;
+    overflow-y: auto;
 }
 
-.wrapper {
+/* Sign-up box */
+#signupModal .wrapper,
+.signup-modal.standalone .wrapper {
     position: relative;
     width: 450px;
-    background: #003F08;
-    border: 2px solid #B6B28E;
-    box-shadow: 0 0 10px rgba(0, 63, 8, .2);
+    max-width: 100%;
+    max-height: calc(100vh - 30px);
+    overflow-y: auto;
+    background: #659287;
+    border: 2px solid #B1D3B9;
+    box-shadow: 0 10px 35px rgba(30, 55, 45, 0.2);
     color: #FFFFFF;
-    border-radius: 10px;
-    padding: 30px 40px;
+    border-radius: 16px;
+    padding: 55px 40px 25px;
+    margin: auto;
+    transform: translateY(20px);
 }
 
-.wrapper h1 {
-    font-size: 36px;
+/* Barangay logo */
+#signupModal .signin-logo,
+.signup-modal.standalone .signin-logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+/* Heading */
+#signupModal .wrapper h1,
+.signup-modal.standalone .wrapper h1 {
+    font-size: 30px;
     text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 8px;
 }
 
-.wrapper .input-box {
+/* Input containers */
+#signupModal .input-box,
+.signup-modal.standalone .input-box {
     position: relative;
     width: 100%;
-    height: 50px;
-    margin: 22px 0;
+    height: 46px;
+    margin: 16px 0;
 }
 
-.input-box input {
+/* Input fields */
+#signupModal .input-box input,
+.signup-modal.standalone .input-box input {
     width: 100%;
     height: 100%;
     background: #FFFFFF;
-    border: 2px solid #B6B28E;
+    border: 2px solid #B1D3B9;
     outline: none;
     border-radius: 40px;
     font-size: 16px;
-    color: #343B2D;
-    padding: 20px 45px 20px 20px;
+    color: #283E36;
+    padding: 12px 45px 12px 20px;
 }
 
-.input-box input::placeholder {
-    color: #747B6A;
+#signupModal .input-box input::placeholder,
+.signup-modal.standalone .input-box input::placeholder {
+    color: #718078;
 }
 
-.input-box i {
+/* Input icons */
+#signupModal .input-box i,
+.signup-modal.standalone .input-box i {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    color: #003F08;
+    color: #659287;
 }
 
-.input-box .password-toggle {
+#signupModal .password-toggle,
+.signup-modal.standalone .password-toggle {
     cursor: pointer;
 }
 
-.password-toggle {
-    cursor: pointer;
-}
-
-input[type="password"]::-ms-reveal,
-input[type="password"]::-ms-clear {
+/* Hide browser password reveal icon */
+#signupModal input[type="password"]::-ms-reveal,
+#signupModal input[type="password"]::-ms-clear,
+.signup-modal.standalone input[type="password"]::-ms-reveal,
+.signup-modal.standalone input[type="password"]::-ms-clear {
     display: none;
 }
 
-.wrapper .btn {
+/* Sign-up button */
+#signupModal .wrapper .btn,
+.signup-modal.standalone .wrapper .btn {
     width: 100%;
     height: 45px;
-    background: #FFFBE0;
+    background: #E6F2DD;
     border: none;
     outline: none;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
-    color: #003F08;
+    color: #344F45;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+#signupModal .wrapper .btn:hover,
+.signup-modal.standalone .wrapper .btn:hover {
+    background: #B1D3B9;
+}
+
+/* Sign-in link */
+#signupModal .register-link,
+.signup-modal.standalone .register-link {
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0 8px;
+}
+
+#signupModal .register-link p a,
+.signup-modal.standalone .register-link p a {
+    color: #E6F2DD;
+    text-decoration: none;
     font-weight: 600;
 }
 
-.gmail-section {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
+#signupModal .register-link p a:hover,
+.signup-modal.standalone .register-link p a:hover {
+    text-decoration: underline;
 }
 
-.divider {
+/* Gmail section */
+#signupModal .gmail-section,
+.signup-modal.standalone .gmail-section {
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+}
+
+#signupModal .divider,
+.signup-modal.standalone .divider {
     display: flex;
     align-items: center;
     width: 100%;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
-.divider::before,
-.divider::after {
+#signupModal .divider::before,
+#signupModal .divider::after,
+.signup-modal.standalone .divider::before,
+.signup-modal.standalone .divider::after {
     content: "";
     flex: 1;
     height: 1px;
-    background: #B6B28E;
+    background: #B1D3B9;
 }
 
-.divider span {
+#signupModal .divider span,
+.signup-modal.standalone .divider span {
     margin: 0 10px;
-    color: #FFFBE0;
+    color: #E6F2DD;
     font-size: 14px;
 }
 
-.gmail-section p {
+#signupModal .gmail-section p,
+.signup-modal.standalone .gmail-section p {
     margin: 10px 0;
     color: #FFFFFF;
     font-size: 14px;
 }
 
-.google-btn {
+#signupModal .google-btn,
+.signup-modal.standalone .google-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: #FFFBE0;
+    background: #FFFFFF;
     border-radius: 50%;
     text-decoration: none;
 }
 
-.google-letter {
+#signupModal .google-letter,
+.signup-modal.standalone .google-letter {
     font-size: 20px;
     font-weight: bold;
-    color: #003F08;
+    color: #659287;
 }
 
-.close-btn {
+/* Close button */
+#signupModal .close-btn,
+.signup-modal.standalone .close-btn {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 12px;
     background: transparent;
     border: none;
-    color: #FFFBE0;
+    color: #FFFFFF;
     font-size: 30px;
     cursor: pointer;
+    line-height: 1;
+    z-index: 2;
 }
 
-.close-btn:hover {
-    color: #B6B28E;
+#signupModal .close-btn:hover,
+.signup-modal.standalone .close-btn:hover {
+    color: #E6F2DD;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+    #signupModal .wrapper,
+    .signup-modal.standalone .wrapper {
+        padding: 55px 24px 20px;
+    }
+
+    #signupModal .wrapper h1,
+    .signup-modal.standalone .wrapper h1 {
+        font-size: 28px;
+    }
+
+    #signupModal .signin-logo,
+    .signup-modal.standalone .signin-logo {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* Short screens */
+@media (max-height: 700px) {
+    #signupModal .wrapper,
+    .signup-modal.standalone .wrapper {
+        padding: 45px 30px 18px;
+    }
+
+    #signupModal .input-box,
+    .signup-modal.standalone .input-box {
+        height: 42px;
+        margin: 12px 0;
+    }
+
+    #signupModal .gmail-section,
+    .signup-modal.standalone .gmail-section {
+        margin-top: 8px;
+    }
+
+    #signupModal .gmail-section p,
+    .signup-modal.standalone .gmail-section p {
+        margin: 6px 0;
+    }
 }

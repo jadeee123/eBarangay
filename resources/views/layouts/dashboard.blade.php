@@ -19,7 +19,7 @@
 
         <div class="logo">
             <img src="{{ asset('images/ebarangay.png') }}"
-                 alt="eBarangay Logo">
+            alt="Barangay Cuambogan">
         </div>
 
         <nav class="sidebar-menu">
@@ -52,43 +52,65 @@
                 <i class="bx bx-user"></i>
                 <span>Profile</span>
             </a>
-
-            <a href="#">
-                <i class="bx bx-cog"></i>
-                <span>Settings</span>
-            </a>
-        </nav>
-
-        <div class="sidebar-help">
-            <i class="bx bx-headphone"></i>
-            <h3>Need Help?</h3>
-            <p>Contact your barangay office for assistance.</p>
-            <a href="mailto:barangay@example.com" class="contact-btn">
-                <i class="bx bxs-phone"></i>
-                Barangay Contact
-            </a>
-        </div>
-
+            
+            <div class="sidebar-help">
+                <i class="bx bx-headphone"></i>
+                <h3>Need Help?</h3>
+                <p>Contact your barangay office for assistance.</p>
+                
+                <a href="{{ route('help') }}" class="contact-btn">
+                    <i class="bx bx-phone"></i>
+                    Barangay Contact
+                </a>
+            </div>
     </aside>
 
     <main class="main-content">
 
         <header class="topbar">
+         
+<header class="topbar">
+    <div class="topbar-actions">
 
-            <div class="search-box">
-                <i class="bx bx-search"></i>
-                <input type="search"
-                       placeholder="Search services or requests...">
-            </div>
-
-            <div class="user-info">
+        <div class="notification-wrapper">
+            <button
+                type="button"
+                class="notification-btn"
+                id="notificationBtn"
+                aria-label="Open notifications"
+                aria-expanded="false"
+                aria-controls="notificationPanel"
+            >
                 <i class="bx bx-bell notification-icon"></i>
-                <div>
-                    <strong>Resident</strong>
-                    <span>eBarangay Account</span>
+            </button>
+
+            <div
+                class="notification-panel"
+                id="notificationPanel"
+                hidden
+            >
+                <div class="notification-header">
+                    <h3>Notifications</h3>
                 </div>
-                <i class="bx bx-chevron-down"></i>
+
+                <div class="notification-empty">
+                    <i class="bx bx-bell-off"></i>
+                    <h4>No notifications yet</h4>
+                    <p>
+                        You're all caught up! Updates about your
+                        requests will appear here.
+                    </p>
+                </div>
             </div>
+        </div>
+
+        <div class="user-info">
+            <strong>Resident</strong>
+            <span>eBarangay Account</span>
+        </div>
+
+    </div>
+</header>
 
         </header>
 
@@ -99,6 +121,10 @@
     </main>
 
 </div>
+
+<script src="{{ asset('js/notifications.js') }}" defer></script>
+
+@stack('scripts')
 
 </body>
 </html>

@@ -22,6 +22,23 @@ Route::get('/dashboard', function () {
 Route::view('/request', 'request')
     ->name('request');
 
-Route::get('/requests/create', function () {
+Route::get('/request/create', function () {
     return view('request-form');
 })->name('requests.create');
+
+
+Route::get('/my-requests', function () {
+    return view('my-request');
+})->name('my-requests');
+
+Route::get('/request-history', function () {
+     return view('request-history');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
+
+Route::get('/help', function () {
+    return view('help');
+})->name('help');

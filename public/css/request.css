@@ -93,13 +93,11 @@
     transform: translateX(4px);
 }
 
-/* Keyboard accessibility */
 .service-card:focus-visible {
     outline: 2px solid #87966F;
     outline-offset: 3px;
 }
 
-/* Tablet and mobile */
 @media (max-width: 600px) {
     .submit-request-page {
         padding: 8px 0;

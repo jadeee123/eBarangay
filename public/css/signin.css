@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -5,145 +6,187 @@
     font-family: Arial, sans-serif;
 }
 
-.modal {
+/* Modal background */
+#signinModal.modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     display: none;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(20, 35, 30, 0.55);
     align-items: center;
     justify-content: center;
     z-index: 1000;
 }
 
-.wrapper {
+/* Sign In box */
+#signinModal .wrapper {
     position: relative;
     height: auto;
     width: 450px;
-    background: #003F08;
-    border: 2px solid #B6B28E;
-    box-shadow: 0 0 10px rgba(0, 63, 8, .2);
+    max-width: calc(100% - 30px);
+    background: #659287;
+    border: 2px solid #B1D3B9;
+    box-shadow: 0 10px 35px rgba(30, 55, 45, 0.2);
     color: #FFFFFF;
-    border-radius: 10px;
-    border-color: #B6B28E;
-    padding: 30px 40px;
+    border-radius: 16px;
+    padding: 65px 40px 30px;
 }
 
-.wrapper h1 {
-    font-size: 36px;
+/* Barangay logo */
+#signinModal .signin-logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+/* Form heading */
+#signinModal .wrapper h1 {
+    font-size: 32px;
     text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 10px;
 }
 
-.wrapper .input-box {
+/* Input container */
+#signinModal .input-box {
     position: relative;
     width: 100%;
     height: 50px;
     margin: 30px 0;
 }
 
-.input-box input {
+/* Input fields */
+#signinModal .input-box input {
     width: 100%;
     height: 100%;
     background: #FFFFFF;
-    border: none;
+    border: 2px solid #B1D3B9;
     outline: none;
-    border: 2px solid #B6B28E;
     border-radius: 40px;
     font-size: 16px;
-    color: #343B2D;
+    color: #283E36;
     padding: 20px 45px 20px 20px;
 }
 
-.input-box input::placeholder {
-    color: #747B6A;
+#signinModal .input-box input::placeholder {
+    color: #718078;
 }
 
-.password-toggle {
-    cursor: pointer;
-}
-
-.input-box i {
+/* Input icons */
+#signinModal .input-box i {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    color: #003F08;
+    color: #659287;
 }
 
-.input-box .password-toggle {
+#signinModal .password-toggle {
     cursor: pointer;
 }
 
-input[type="password"]::-ms-reveal,
-input[type="password"]::-ms-clear {
+#signinModal input[type="password"]::-ms-reveal,
+#signinModal input[type="password"]::-ms-clear {
     display: none;
 }
 
-.wrapper .remember-forgot {
+/* Remember me and forgot password */
+#signinModal .remember-forgot {
     display: flex;
     justify-content: space-between;
-    font-size: 14.5px;
-    margin: -15px 0 15px;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    margin: -15px 0 20px;
 }
 
-.remember-forgot label input {
-    accent-color: #87966F;
-    margin-right: 30px;
+#signinModal .remember-forgot label input {
+    accent-color: #E6F2DD;
+    margin-right: 5px;
 }
 
-.remember-forgot a {
-    color: #FFFBE0;
+#signinModal .remember-forgot a {
+    color: #E6F2DD;
     text-decoration: none;
 }
 
-.remember-forgot a:hover {
+#signinModal .remember-forgot a:hover {
     text-decoration: underline;
 }
 
-.wrapper .btn {
+/* Sign In button */
+#signinModal .wrapper .btn {
     width: 100%;
     height: 45px;
-    background: #FFFBE0;
+    background: #E6F2DD;
     border: none;
     outline: none;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
-    color: #003F08;
+    color: #344F45;
     font-weight: 600;
+    transition: background 0.2s ease;
 }
 
-.wrapper .register-link {
-    font-size: 14.5px;
+#signinModal .wrapper .btn:hover {
+    background: #B1D3B9;
+}
+
+/* Register link */
+#signinModal .register-link {
+    font-size: 14px;
     text-align: center;
-    margin: 20px 0 15px;
+    margin: 20px 0 10px;
 }
 
-.register-link p a {
-    color: #FFFBE0;
+#signinModal .register-link p a {
+    color: #E6F2DD;
     text-decoration: none;
     font-weight: 600;
 }
 
-.register-link p a:hover {
+#signinModal .register-link p a:hover {
     text-decoration: underline;
 }
 
-.close-btn {
+/* Close button */
+#signinModal .close-btn {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 12px;
     background: transparent;
     border: none;
-    color: #FFFBE0;
+    color: #FFFFFF;
     font-size: 30px;
     cursor: pointer;
+    line-height: 1;
+    z-index: 2;
 }
 
-.close-btn:hover {
-    color: #B6B28E;
+#signinModal .close-btn:hover {
+    color: #E6F2DD;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+    #signinModal .wrapper {
+        padding: 65px 24px 25px;
+    }
+
+    #signinModal .wrapper h1 {
+        font-size: 28px;
+    }
+
+    #signinModal .signin-logo {
+        width: 36px;
+        height: 36px;
+    }
 }

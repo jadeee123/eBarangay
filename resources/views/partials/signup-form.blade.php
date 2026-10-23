@@ -1,6 +1,14 @@
 
 <form action="">
     <h1>Sign Up</h1>
+
+    
+<img
+    src="{{ asset('images/ebarangay.png') }}"
+    alt="Barangay Cuambogan Seal"
+    class="signin-logo"
+>
+
     <div class="input-box">
 
         <input type="text" placeholder="Username" required>
@@ -16,14 +24,19 @@
          <input type="password" placeholder="Password" class="password-input" required>
          <i class="bx bx-show password-toggle"></i>
 
-</div>
+  </div>
 
      <div class="input-box">
          <input type="password" placeholder="Confirm Password" class="password-input" required>
          <i class="bx bx-show password-toggle"></i>
-</div>
+  </div>
     
         <button type="submit" class="btn">Sign Up</button>
+
+        <div class="register-link">
+            <p>Already have an account?
+                <a href="#" class="switch-to-signin">Sign In</a></p>
+        </div>
 
         <div class="gmail-section">
 
@@ -37,4 +50,5 @@
                 <span class="google-letter">G</span>
             </a>
         </div>
+
 </form>

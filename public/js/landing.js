@@ -1,70 +1,65 @@
-const navigationLinks = document.querySelectorAll('a[href^="#"]');
 
-navigationLinks.forEach(function(link) {
+document.addEventListener("DOMContentLoaded", function () {
 
-    link.addEventListener("click", function(event) {
+    // Smooth scrolling for section links
+    const navigationLinks = document.querySelectorAll('a[href^="#"]');
 
-        const targetId = this.getAttribute("href");
+    navigationLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            const targetId = this.getAttribute("href");
 
-        if (targetId === "#") {
-            return;
-        }
+            if (!targetId || targetId === "#") {
+                return;
+            }
 
-        const target = document.querySelector(targetId);
+            const target = document.querySelector(targetId);
 
-        if (target) {
+            if (target) {
+                event.preventDefault();
 
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+
+    // Sign In modal
+    const signInButtons = document.querySelectorAll(".signin-btn");
+    const signInModal = document.getElementById("signinModal");
+
+    signInButtons.forEach(function (button) {
+        button.addEventListener("click", function (event) {
             event.preventDefault();
 
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
+            if (signInModal) {
+                signInModal.style.display = "flex";
+            }
+        });
     });
 
-});
+    // Sign Up modal
+    const signUpButtons = document.querySelectorAll(".signup-btn");
+    const signUpModal = document.getElementById("signupModal");
 
-const signInButton = document.querySelector(".signin-btn");
-const signInModal = document.querySelector("#signinModal");
+    signUpButtons.forEach(function (button) {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
 
-if (signInButton && signInModal) {
-
-    signInButton.addEventListener("click", function(event) {
-
-        event.preventDefault();
-
-        signInModal.style.display = "flex";
-
+            if (signUpModal) {
+                signUpModal.style.display = "flex";
+            }
+        });
     });
 
-}
+    // Close modals and reset their forms
+    const closeButtons = document.querySelectorAll(".close-btn");
 
-const signUpButton = document.querySelector(".signup-btn");
-const signUpModal = document.querySelector("#signupModal");
+    closeButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const modal = button.closest(".modal");
 
-if (signUpButton && signUpModal) {
-
-    signUpButton.addEventListener("click", function(event) {
-
-        event.preventDefault();
-
-        signUpModal.style.display = "flex";
-
-    });
-
-}
-
-const closeButtons = document.querySelectorAll(".close-btn");
-
-closeButtons.forEach(function(button) {
-
-    button.addEventListener("click", function() {
-
-        const modal = this.closest(".modal");
-
-        if (modal) {
+            if (!modal) return;
 
             modal.style.display = "none";
 
@@ -74,48 +69,68 @@ closeButtons.forEach(function(button) {
                 form.reset();
             }
 
-            const passwordInputs = modal.querySelectorAll(".password-input");
-
-            passwordInputs.forEach(function(input) {
+            // Hide passwords again
+            modal.querySelectorAll(".password-input").forEach(function (input) {
                 input.type = "password";
             });
 
-            const passwordToggles = modal.querySelectorAll(".password-toggle");
-
-            passwordToggles.forEach(function(toggle) {
-                toggle.style.display = "block";
+            // Reset password eye icons
+            modal.querySelectorAll(".password-toggle").forEach(function (toggle) {
+                toggle.classList.remove("bx-hide");
+                toggle.classList.add("bx-show");
             });
-
-        }
-
+        });
     });
 
-});
+    // Close a modal by clicking its background
+    document.querySelectorAll(".modal").forEach(function (modal) {
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
 
-const passwordToggles = document.querySelectorAll(".password-toggle");
+    // Show or hide passwords
+    const passwordToggles = document.querySelectorAll(".password-toggle");
 
-passwordToggles.forEach(function(toggle) {
+    passwordToggles.forEach(function (toggle) {
+        toggle.addEventListener("click", function () {
+            const container = toggle.parentElement;
+            const input = container.querySelector(".password-input");
 
-    toggle.addEventListener("click", function() {
+            if (!input) return;
 
-        const input = this.parentElement.querySelector(".password-input");
+            if (input.type === "password") {
+                input.type = "text";
+                toggle.classList.remove("bx-show");
+                toggle.classList.add("bx-hide");
+            } else {
+                input.type = "password";
+                toggle.classList.remove("bx-hide");
+                toggle.classList.add("bx-show");
+            }
+        });
+    });
 
-        if (input.type === "password") {
+    // Switch from Sign In to Sign Up
+    document.querySelectorAll(".switch-to-signup").forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
 
-            input.type = "text";
+            if (signInModal) signInModal.style.display = "none";
+            if (signUpModal) signUpModal.style.display = "flex";
+        });
+    });
 
-            this.classList.remove("bx-show");
-            this.classList.add("bx-hide");
+    // Switch from Sign Up to Sign In
+    document.querySelectorAll(".switch-to-signin").forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
 
-        } else {
-
-            input.type = "password";
-
-            this.classList.remove("bx-hide");
-            this.classList.add("bx-show");
-
-        }
-
+            if (signUpModal) signUpModal.style.display = "none";
+            if (signInModal) signInModal.style.display = "flex";
+        });
     });
 
 });
