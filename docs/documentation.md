@@ -114,7 +114,7 @@ The system is limited to selected barangay services offered by Barangay Cuambuga
 
 Some official documents or services may still require physical claiming at the barangay office even when the request has been submitted and processed through the system. The system also requires a stable internet connection for residents and barangay officials to access its online features. Email notifications depend on the resident providing a valid email address and having access to their email account. The system does not include online payment processing for barangay fees or other possible charges. Lastly, the system is specifically designed for Barangay Cuambugan and is not intended to automatically cover or manage the services of other barangays.
 
-## 1.5 Target Users / Beneficiaries
+# 1.5 Target Users / Beneficiaries
 
 The completed system is intended for residents and authorized barangay officials or staff of Barangay Cuambugan. Each user group has a different role in using the system and can benefit from the features provided.
 
@@ -124,7 +124,7 @@ Barangay Officials/Staff serve as the administrators of the system. They can rev
 
 Overall, the completed application benefits both residents and barangay officials by providing a more organized way to handle selected barangay service requests. It helps residents access services and receive updates more conveniently, while it helps barangay officials manage requests and records in a more systematic manner.
 
-## 1.7 Definition of Terms
+# 1.7 Definition of Terms
 
 The following terms are defined based on how they are used in the proposed system:
 
@@ -142,3 +142,39 @@ The following terms are defined based on how they are used in the proposed syste
 12. **System Administrator** – An authorized barangay staff member who has access to administrative features for managing users, requests, services, and records.
 13. **Web-Based System** – A software application that can be accessed through a web browser using an internet connection.
 14. **Barangay Cuambugan** – The selected barangay where the proposed system will be used to manage selected resident service requests.
+
+# CHAPTER 2 – METHODOLOGY
+
+# 2.1 Development Methodology
+
+The development of the eBarangay Service Request System for Barangay Cuambugan followed a step-by-step process to make sure that the system met the needs of residents and barangay officials. The development process focused on understanding the problems in the current request process, planning the system features, designing the interface, developing the system, testing its functions, and making improvements when needed.
+
+# Planning and Requirements Gathering
+
+During this phase, the group identified the common problems residents face when requesting barangay services. These included the need to visit the barangay office to ask about requirements, follow up on requests, and check if their documents were ready. The group also identified the needs of barangay officials in handling requests and keeping records. These helped determine the main features of the proposed system.
+
+# System Design
+
+After identifying the requirements, the group planned the system's layout, features, and user roles. The design included separate access for residents and authorized barangay staff. It also covered the service list, online request form, request status, email notifications, claim date scheduling, and records management.
+
+# System Development
+
+During this phase, the group developed the web-based system based on the planned design and requirements. The main features were created to allow residents to register, view available services, submit requests, and monitor their request status. The staff features were designed to help authorized users review requests, update their status, set claim dates, and manage records.
+
+# Testing and Improvement
+
+The system's features were tested to check whether they worked as expected. The testing focused on account access, online request submission, request status updates, email notifications, claim date scheduling, and records management. Problems found during testing were checked and corrected when possible to improve the system's performance and ease of use.
+
+# Final Review
+
+In the final phase, the group reviewed the system to check whether its features matched the project objectives. The group also checked the interface and the main functions to make sure they were understandable and easy to use. This phase helped identify areas that needed further improvement before the system was presented.
+
+# 2.2 Requirements Gathering
+
+The group gathered the requirements for the eBarangay Service Request System by identifying the common problems residents may face when requesting barangay services and the tasks barangay officials need to handle. The group reviewed the existing request process to understand how residents ask about available services, submit requirements, follow up on requests, and check when their documents are ready.
+
+Based on these concerns, the group identified the main features needed for the system. These include resident registration and login, viewing available services and requirements, submitting requests online, tracking request status, receiving email notifications, and viewing scheduled claim dates.
+
+The group also identified the features needed by barangay officials. These include reviewing submitted requests, checking the information provided by residents, updating request statuses, setting claim dates, and keeping records of submitted and completed requests.
+
+The gathered requirements served as the basis for planning and designing the system. They helped the group decide which features to include so the system could provide residents with a more convenient way to request services and help barangay officials manage requests in a more organized manner.
