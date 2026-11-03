@@ -178,3 +178,62 @@ Based on these concerns, the group identified the main features needed for the s
 The group also identified the features needed by barangay officials. These include reviewing submitted requests, checking the information provided by residents, updating request statuses, setting claim dates, and keeping records of submitted and completed requests.
 
 The gathered requirements served as the basis for planning and designing the system. They helped the group decide which features to include so the system could provide residents with a more convenient way to request services and help barangay officials manage requests in a more organized manner.
+
+# 2.3 Functional Requirements
+
+The functional requirements describe the main features of the eBarangay Service Request System for Barangay Cuambugan. These features explain what residents and authorized barangay staff can do when using the system.
+
+# Functional Requirements Table
+
+| No. | Module | Functional Requirement |
+|---|---|---|
+| 1 | User Account Management | The system allows residents to create an account and log in. |
+| 2 | Service Information | The system allows residents to view available barangay services and their requirements. |
+| 3 | Online Service Request | The system allows residents to select a service, provide the required information and documents, and submit a request online. |
+| 4 | Request Tracking | The system allows residents to view the status and progress of their submitted requests. |
+| 5 | Request History | The system allows residents to view their previous and completed service requests. |
+| 6 | Email Notification | The system sends email notifications to residents about updates to their requests. |
+| 7 | Claim Date Scheduling | The system allows authorized barangay staff to set the scheduled date for claiming requested documents or services. Residents can view the scheduled date. |
+| 8 | Request Management | The system allows authorized barangay staff to review submitted requests and check the information and requirements provided by residents. |
+| 9 | Request Status Management | The system allows authorized barangay staff to update request statuses, such as Pending, Processing, Approved, or Completed. |
+| 10 | Request Records Management | The system keeps organized records of submitted and completed service requests. |
+| 11 | Service Request Monitoring | The system allows authorized barangay staff to monitor requests and identify frequently requested barangay services or documents. |
+| 12 | Announcements and Information | The system provides announcements or important barangay information to help keep residents informed. |
+| 13 | Role-Based Access | The system provides different access permissions for residents and authorized barangay staff based on their assigned roles. |
+
+These functional requirements serve as a guide for checking whether the system's main features work according to the project objectives. They focus on making service requests easier for residents and helping barangay staff handle requests in a more organized way.
+
+# 2.4 Non-Functional Requirements
+
+The non-functional requirements describe how the eBarangay Service Request System should work. These requirements focus on security, ease of use, performance, reliability, responsiveness, compatibility, and backup. They help ensure that the system is convenient for residents and useful for authorized barangay staff.
+
+# Security
+
+The system should protect the information provided by residents. Only authorized users should be allowed to access features based on their assigned roles. Residents should only be able to access the features and request information permitted for their accounts, while authorized barangay staff can manage and process service requests.
+
+# Usability
+
+The system should have a simple and understandable interface. Residents should be able to find available services, read their requirements, submit requests, and check request updates without difficulty. Barangay staff should also be able to review and manage requests through clear and organized pages.
+
+# Performance
+
+The system should process common activities, such as logging in, viewing available services, submitting requests, and checking request status, within a reasonable amount of time. It should handle normal system use without unnecessary delays.
+
+# Reliability
+
+The system should work properly during normal use. Its main features, including request submission, status updates, claim date scheduling, and request history, should provide correct and consistent information. Errors should be handled properly to reduce problems during transactions.
+
+# Responsiveness
+
+The system should display its pages and information properly on different screen sizes. Its layout should be easy to use on desktop computers, laptops, tablets, and mobile phones, provided the device has a supported browser and internet access.
+
+# Compatibility
+
+The system should be accessible through commonly used web browsers. Its main features should work properly on supported browsers and devices with an internet connection.
+
+# Backup and Data Recovery
+
+The system's data should be backed up regularly to reduce the risk of losing important service request records. Backup copies should be stored securely and should be available for recovery when needed. Access to backup files should be limited to authorized persons.
+
+These non-functional requirements serve as guidelines for checking the system's quality and ease of use. They help ensure that the eBarangay Service Request System can support the online request process and help barangay staff manage service requests in an organized manner.
+
