@@ -237,3 +237,10 @@ The system's data should be backed up regularly to reduce the risk of losing imp
 
 These non-functional requirements serve as guidelines for checking the system's quality and ease of use. They help ensure that the eBarangay Service Request System can support the online request process and help barangay staff manage service requests in an organized manner.
 
+# 2.5 System Architecture
+
+The eBarangay Service Request System uses a web-based architecture with four main components: the web browser, application server, database, and email notification service. The web browser allows residents to view available barangay services and their requirements, submit service requests, track request statuses, and check scheduled claim dates. Barangay staff use the browser to review submitted requests, update request statuses, set claim dates, and manage service request records.
+
+The application server processes the actions made by residents and barangay staff. It handles service requests, updates request statuses, sets claim dates, and communicates with the database to save and retrieve information. The database stores account details, available services, submitted requests, request statuses, and scheduled claim dates. This allows the system to keep information organized and make it available when needed. Meanwhile, the email notification service sends residents updates about their requests when the feature is supported and properly configured.
+
+When residents or barangay staff access the system through a web browser, their actions are sent to the application server for processing. The server communicates with the database to save or retrieve the necessary information and then displays the results in the browser. When email notifications are enabled, residents can also receive updates about their service requests through email.
