@@ -244,3 +244,15 @@ The eBarangay Service Request System uses a web-based architecture with four mai
 The application server processes the actions made by residents and barangay staff. It handles service requests, updates request statuses, sets claim dates, and communicates with the database to save and retrieve information. The database stores account details, available services, submitted requests, request statuses, and scheduled claim dates. This allows the system to keep information organized and make it available when needed. Meanwhile, the email notification service sends residents updates about their requests when the feature is supported and properly configured.
 
 When residents or barangay staff access the system through a web browser, their actions are sent to the application server for processing. The server communicates with the database to save or retrieve the necessary information and then displays the results in the browser. When email notifications are enabled, residents can also receive updates about their service requests through email.
+
+# 2.6 Use Case Diagram
+
+The use case diagram illustrates how the two main actors, Barangay Staff/Officials and Residents, interact with the eBarangay Service Request System. It shows the functions available to each actor and how they use the system to complete their tasks.
+
+Residents can create an account, log in, view available barangay services, and submit service requests by providing the required information. They can also view their scheduled claim dates and receive notifications about their requests.
+
+On the other hand, Barangay Staff/Officials can log in to the system, review service requests, check the information submitted by residents, update request statuses, and set claim dates. They can also maintain request records and monitor frequently requested services.
+
+The diagram also shows two included functions. When a resident submits a service request, providing the required information is part of the process. Similarly, when staff review a service request, checking the submitted information is included in the review process.
+
+Overall, the use case diagram presents the main functions of the eBarangay system and shows how residents and barangay staff work together in processing and monitoring service requests.
