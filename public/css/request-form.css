@@ -57,7 +57,7 @@
 }
 
 .selected-service {
-    background: #FFFDF4;
+    background: #E6F2DD;
 }
 
 .section-heading {
@@ -75,8 +75,8 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: #FFDF7E;
-    color: #003F08;
+    background: #88bda4;
+    color: #283e36;
 }
 
 .section-icon i {
@@ -133,14 +133,14 @@
 .request-form textarea {
     width: 100%;
     padding: 12px 13px;
-    border: 1px solid #DCDACD;
+    border-color: 1px solid #659287;
     border-radius: 8px;
     background: #FFFEFA;
     color: #20251F;
     font-family: Arial, sans-serif;
     font-size: 13px;
     outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s, box-shadow  0 0 0 3px rgba(101, 146, 135, 0.15);
 }
 
 .request-form input,
@@ -182,16 +182,16 @@
     align-items: flex-start;
     gap: 10px;
     padding: 15px;
-    border: 1px solid #E7D99E;
+    border: 1px solid #B1D3B9;
     border-radius: 9px;
-    background: #FFF8DC;
-    color: #514B32;
+    background: #E6F2DD;
+    color: #283E36;
 }
 
 .form-notice i {
     flex-shrink: 0;
     font-size: 21px;
-    color: #003F08;
+    color: #283E36;
 }
 
 .form-notice p {
@@ -236,13 +236,13 @@
 }
 
 .submit-btn {
-    border: 1px solid #003F08;
-    background: #003F08;
+    border: 1px solid #659287;
+    background: #659287;
     color: #FFFFFF;
 }
 
 .submit-btn:hover {
-    background: #075A12;
+    background: #52766B;
     transform: translateY(-1px);
 }
 

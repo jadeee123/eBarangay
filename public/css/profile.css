@@ -1,0 +1,274 @@
+
+.profile-page {
+    width: 100%;
+    color: #283E36;
+    box-sizing: border-box;
+}
+
+.profile-page *,
+.profile-page *::before,
+.profile-page *::after {
+    box-sizing: border-box;
+}
+
+.profile-page .page-heading {
+    margin-bottom: 24px;
+}
+
+.profile-page .page-heading h2 {
+    margin: 0 0 6px;
+    color: #283E36;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.profile-page .page-heading p {
+    margin: 0;
+    color: #52766B;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.settings-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.5fr);
+    gap: 14px;
+    align-items: start;
+    width: 100%;
+}
+
+.settings-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    background: #FFFFFF;
+    border: 1px solid #B1D3B9;
+    border-radius: 12px;
+}
+
+.settings-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 43px;
+    padding: 11px 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: #283E36;
+    text-align: left;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.settings-menu-item > i:first-child {
+    flex-shrink: 0;
+    font-size: 19px;
+}
+
+.settings-menu-item span {
+    flex: 1;
+}
+
+.settings-menu-item .menu-arrow {
+    flex-shrink: 0;
+    font-size: 17px;
+}
+
+.settings-menu-item:hover {
+    background: #E6F2DD;
+}
+
+.settings-menu-item.active {
+    background: #659287;
+    border-color: #659287;
+    color: #FFFFFF;
+}
+
+.settings-content {
+    min-width: 0;
+    padding: 20px;
+    background: #FFFFFF;
+    border: 1px solid #B1D3B9;
+    border-radius: 12px;
+}
+
+.settings-panel {
+    background-color: var(--soft-color);
+    color: var(--text-color);
+}
+
+.settings-panel h3 {
+    margin: 0 0 7px;
+    color: #283E36;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.panel-description {
+    margin: 0 0 20px;
+    color: #52766B;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.profile-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 16px;
+}
+
+.profile-form-group label {
+    color: #52766B;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.profile-form-group input,
+.profile-form-group select {
+    width: 100%;
+    min-width: 0;
+    height: 39px;
+    padding: 9px 11px;
+    border: 1px solid #B1D3B9;
+    border-radius: 7px;
+    background: #FFFFFF;
+    color: #283E36;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+}
+
+.profile-form-group input::placeholder {
+    color: #879B91;
+}
+
+.profile-form-group input:focus,
+.profile-form-group select:focus {
+    border-color: #659287;
+    box-shadow: 0 0 0 3px rgba(101, 146, 135, 0.18);
+}
+
+.save-settings-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 40px;
+    margin-top: 24px;
+    padding: 10px 16px;
+    border: 1px solid #659287;
+    border-radius: 7px;
+    background: #659287;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.save-settings-btn:hover {
+    background: #52766B;
+}
+
+.settings-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #E6F2DD;
+    cursor: pointer;
+}
+
+.settings-option:first-of-type {
+    padding-top: 0;
+}
+
+.settings-option span {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.settings-option strong {
+    color: #283E36;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.settings-option small {
+    color: #52766B;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.settings-option input {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: #659287;
+    cursor: pointer;
+}
+
+.settings-message {
+    margin: 12px 0 0;
+    color: #52766B;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.settings-message:empty {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .settings-layout {
+        grid-template-columns: minmax(180px, 0.8fr) minmax(0, 1.3fr);
+        gap: 10px;
+    }
+
+    .settings-content {
+        padding: 16px;
+    }
+
+    .settings-menu {
+        padding: 7px;
+    }
+
+    .settings-menu-item {
+        gap: 7px;
+        padding: 10px 8px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-page .page-heading h2 {
+        font-size: 21px;
+    }
+
+    .settings-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .settings-menu {
+        gap: 5px;
+    }
+
+    .settings-menu-item {
+        min-height: 42px;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .settings-content {
+        padding: 17px;
+    }
+}

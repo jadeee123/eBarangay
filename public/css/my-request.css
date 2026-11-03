@@ -1,0 +1,437 @@
+
+.my-request-page {
+    width: 100%;
+    color: #283E36;
+    box-sizing: border-box;
+}
+
+.my-request-page *,
+.my-request-page *::before,
+.my-request-page *::after {
+    box-sizing: border-box;
+}
+
+.my-request-page .page-heading {
+    margin-bottom: 24px;
+}
+
+.my-request-page .page-heading h2 {
+    margin: 0 0 6px;
+    color: #283E36;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.my-request-page .page-heading p {
+    margin: 0;
+    color: #52766B;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.my-request-page .request-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.my-request-page .request-tabs {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.my-request-page .request-tab {
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background: #E6F2DD;
+    color: #52766B;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.my-request-page .request-tab:hover {
+    background: #B1D3B9;
+}
+
+.my-request-page .request-tab.active {
+    background: #659287;
+    border-color: #659287;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.my-request-page .request-search {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex: 0 1 260px;
+    width: 260px;
+    max-width: 260px;
+    min-width: 0;
+    height: 42px;
+    margin-left: auto;
+    padding: 0 12px;
+    background: #FFFFFF;
+    border: 1px solid #B1D3B9;
+    border-radius: 10px;
+    color: #52766B;
+}
+
+.my-request-page .request-search:focus-within {
+    border-color: #659287;
+    box-shadow: 0 0 0 3px rgba(101, 146, 135, 0.15);
+}
+
+.my-request-page .request-search i {
+    flex-shrink: 0;
+    font-size: 15px;
+}
+
+.my-request-page .request-search input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #283E36;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.my-request-page .request-search input::placeholder {
+    color: #82958C;
+}
+
+.my-request-page .request-filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #B1D3B9;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: #283E36;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.my-request-page .request-filter-btn:hover {
+    background: #E6F2DD;
+}
+
+.my-request-page .request-filter-panel {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding: 18px;
+    background: #FFFFFF;
+    border: 1px solid #B1D3B9;
+    border-radius: 12px;
+}
+
+.my-request-page .request-filter-panel[hidden] {
+    display: none;
+}
+
+.my-request-page .filter-field {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 145px;
+}
+
+.my-request-page .filter-field label {
+    color: #52766B;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.my-request-page .filter-field input,
+.my-request-page .filter-field select {
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+    padding: 8px 10px;
+    border: 1px solid #B1D3B9;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #283E36;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+.my-request-page .filter-field input:focus,
+.my-request-page .filter-field select:focus {
+    border-color: #659287;
+}
+
+.my-request-page .clear-filters-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #B1D3B9;
+    border-radius: 8px;
+    background: #E6F2DD;
+    color: #283E36;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.my-request-page .clear-filters-btn:hover {
+    background: #B1D3B9;
+}
+
+.my-request-page .request-table-card {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #B1D3B9;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(40, 62, 54, 0.03);
+}
+
+.my-request-page .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.my-request-page .request-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.my-request-page .request-table thead {
+    background: #E6F2DD;
+}
+
+.my-request-page .request-table th {
+    padding: 15px 14px;
+    color: #52766B;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.my-request-page .request-table td {
+    padding: 14px;
+    border-top: 1px solid #E6F2DD;
+    color: #283E36;
+    font-size: 12px;
+}
+
+.my-request-page .request-table tbody tr:hover {
+    background: #F5FAF2;
+}
+
+.my-request-page .request-table tbody tr[hidden] {
+    display: none;
+}
+
+.my-request-page .request-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.my-request-page .request-status.pending {
+    background: #FFF0C2;
+    color: #795700;
+}
+
+.my-request-page .request-status.completed {
+    background: #E6F2DD;
+    color: #365E49;
+}
+
+.my-request-page .request-status.processing {
+    background: #DCEAE5;
+    color: #365D52;
+}
+
+.my-request-page .request-status.rejected {
+    background: #F8D7DA;
+    color: #842029;
+}
+
+.my-request-page .view-request-btn {
+    display: inline-block;
+    padding: 7px 17px;
+    border: none;
+    border-radius: 18px;
+    background: #659287;
+    color: #FFFFFF;
+    font-size: 11px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.my-request-page .view-request-btn:hover {
+    background: #52766B;
+}
+
+.my-request-page .empty-state {
+    padding: 42px 20px;
+    text-align: center;
+}
+
+.my-request-page .empty-state[hidden] {
+    display: none;
+}
+
+.my-request-page .empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #E6F2DD;
+    color: #659287;
+    font-size: 23px;
+}
+
+.my-request-page .empty-state h3 {
+    margin: 0 0 8px;
+    color: #283E36;
+    font-size: 16px;
+}
+
+.my-request-page .empty-state p {
+    margin: 0 0 20px;
+    color: #52766B;
+    font-size: 12px;
+}
+
+.my-request-page .submit-request-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 17px;
+    border: 1px solid #659287;
+    border-radius: 7px;
+    background: #659287;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.my-request-page .submit-request-btn:hover {
+    background: #52766B;
+}
+
+@media (max-width: 850px) {
+    .my-request-page .request-toolbar {
+        gap: 10px;
+    }
+
+    .my-request-page .request-tabs {
+        margin-right: auto;
+    }
+
+    .my-request-page .request-search {
+        flex: 0 1 230px;
+        width: 230px;
+        margin-left: 0;
+    }
+
+    .my-request-page .request-table {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 600px) {
+    .my-request-page .page-heading {
+        margin-bottom: 18px;
+    }
+
+    .my-request-page .page-heading h2 {
+        font-size: 21px;
+    }
+
+    .my-request-page .request-toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 42px;
+        gap: 10px;
+    }
+
+    .my-request-page .request-tabs {
+        grid-column: 1 / -1;
+        display: flex;
+        width: 100%;
+        margin: 0;
+    }
+
+    .my-request-page .request-tab {
+        flex: 1;
+        padding: 10px 7px;
+        font-size: 11px;
+    }
+
+    .my-request-page .request-search {
+        grid-column: 1;
+        grid-row: 2;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .my-request-page .request-filter-btn {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .my-request-page .request-filter-panel {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .my-request-page .filter-field {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .my-request-page .clear-filters-btn {
+        width: 100%;
+    }
+
+    .my-request-page .empty-state {
+        padding: 32px 14px;
+    }
+}
