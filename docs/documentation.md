@@ -256,3 +256,57 @@ On the other hand, Barangay Staff/Officials can log in to the system, review ser
 The diagram also shows two included functions. When a resident submits a service request, providing the required information is part of the process. Similarly, when staff review a service request, checking the submitted information is included in the review process.
 
 Overall, the use case diagram presents the main functions of the eBarangay system and shows how residents and barangay staff work together in processing and monitoring service requests.
+
+# 2.7 Database Design / ERD
+
+The Entity-Relationship Diagram (ERD) shows the structure of the database used by the eBarangay Service Request System. It consists of three main entities: Users, Services, and Requests.
+
+The Users table stores account information, including the user's name, email, password, and role. The Services table contains information about the barangay services available in the system. The Requests table stores the service requests submitted by residents, including their descriptions, statuses, claim dates, and the staff member who processed each request.
+
+The database has a one-to-many relationship between Users and Requests because one user can submit multiple service requests. Services and Requests also have a one-to-many relationship because one service can be requested many times. The `processed_by` field connects a request to the user who processed it, which is optional.
+
+# Entity Relationships
+
+**Users and Requests (One-to-Many):** One user can submit multiple service requests, but each request belongs to one user.
+**Services and Requests (One-to-Many):** One service can have many submitted requests, but each request is connected to one service.
+**Users and Requests through `processed_by` (One-to-Many):** One user, acting as an administrator or staff member, can process multiple requests. However, the `processed_by` field may be empty if a request has not yet been processed.
+
+This database structure helps organize user accounts, barangay services, and service requests while keeping their related information connected.
+
+# 2.9 Development Tools and Technologies
+
+The eBarangay Service Request System was developed using different tools and technologies for writing code, designing the interface, and managing the project files. These tools helped the group develop and organize the system.
+
+# Development Tools and Technologies Table
+
+| Tools and Technologies | Description |
+|---|---|
+| PHP | Used as the server-side programming language for processing system operations. |
+| Laravel | A PHP framework used to develop the web application and organize its functions. |
+| HTML | Used to structure the content and elements of the web pages. |
+| CSS | Used to design the layout, colors, and appearance of the system. |
+| Visual Studio Code | Used as the code editor for writing and editing the project's source code. |
+| Git | Used to track changes in the source code during development. |
+| GitHub | Used to store the project repository and manage the team's code and documentation. |
+
+*Table 3: Development Tools and Technologies*
+
+These tools and technologies helped the group develop the eBarangay Service Request System, organize its source code, design the user interface, and manage project files. Each tool served a specific purpose in the development process.
+
+# 2.10 Testing Methodology
+
+The eBarangay Service Request System will be tested to check whether its features work properly and meet the needs of residents and authorized barangay staff. The testing process will focus on the main functions of the system, how its different parts work together, and whether users can use it without difficulty.
+
+# Functional Testing
+
+Functional testing will be used to check whether each feature works as expected. This includes account registration and login, viewing available barangay services and their requirements, submitting service requests, tracking request status, viewing request history, receiving email notifications, and checking scheduled claim dates. The staff functions will also be checked, including reviewing requests, updating request statuses, setting claim dates, and managing service request records.
+
+# Integration Testing
+
+Integration testing will be conducted to check whether the different parts of the system work together correctly. For example, when a resident submits a service request, the system should save the information in the database and display the request to the authorized staff. When staff update the request status or set a claim date, the changes should be reflected in the resident's account. Email notifications will also be checked to see whether request updates are sent when the feature is properly configured.
+
+# User Acceptance Testing
+
+User acceptance testing will be used to check whether the system is easy to understand and meets the needs of its intended users. Residents can check whether they can navigate the system, submit requests, and monitor their progress. Authorized barangay staff can check whether they can review and process requests, update statuses, and set claim dates. Feedback from users can help identify features that need improvement.
+
+The testing process will help the group identify errors and areas that need improvement before the system is presented as complete. The actual test cases, results, and any problems found during testing will be presented in Chapter 4.
