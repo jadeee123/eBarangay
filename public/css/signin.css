@@ -175,6 +175,35 @@
     color: #E6F2DD;
 }
 
+
+/* Google Sign In Button */
+#signinModal .google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    margin: 12px auto 0;
+    background: #FFFFFF;
+    border: 1px solid #DADCE0;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#signinModal .google-btn:hover {
+    background: #F5F5F5;
+    transform: scale(1.05);
+}
+
+#signinModal .google-letter {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: #659287;
+}
+
+
 /* Small screens */
 @media (max-width: 480px) {
     #signinModal .wrapper {

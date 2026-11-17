@@ -42,3 +42,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateHistory();
 });
+
+
+    // Request Details Modal
+    const historyModal = document.getElementById('historyDetailsModal');
+    const closeHistoryModal = document.getElementById('closeHistoryModal');
+    const viewButtons = document.querySelectorAll('.history-view-btn');
+
+    viewButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            document.getElementById('detailService').textContent =
+                button.dataset.service;
+
+            document.getElementById('detailDescription').textContent =
+                button.dataset.description || 'No description provided';
+
+            document.getElementById('detailDate').textContent =
+                button.dataset.date;
+
+            document.getElementById('detailStatus').textContent =
+                button.dataset.status;
+
+            document.getElementById('detailClaimDate').textContent =
+                button.dataset.claimDate;
+
+            historyModal.hidden = false;
+        });
+    });
+
+    closeHistoryModal.addEventListener('click', function () {
+        historyModal.hidden = true;
+    });
+
+    historyModal.addEventListener('click', function (event) {
+        if (event.target === historyModal) {
+            historyModal.hidden = true;
+        }
+    });

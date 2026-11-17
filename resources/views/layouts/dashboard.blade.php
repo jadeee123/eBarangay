@@ -63,12 +63,39 @@
                     Barangay Contact
                 </a>
             </div>
+            
+            <form action="{{ route('logout') }}" method="POST" class="sidebar-logout-form" id="logoutForm">
+                @csrf
+                <button type="button" class="sidebar-logout" id="logoutTrigger">
+                    <i class="bx bx-log-out"></i>
+                    <span>Log Out</span>
+                </button>
+            </form>
+            
+            <div class="logout-modal" id="logoutModal" hidden>
+                <div class="logout-modal-content" role="dialog" aria-modal="true" aria-labelledby="logoutTitle">
+                    <div class="logout-modal-icon">
+                        <i class="bx bx-log-out"></i>
+                    </div>
+                    
+                    <h2 id="logoutTitle">Log Out?</h2>
+                    <p>Are you sure you want to log out of your eBarangay account?</p>
+                    
+                    <div class="logout-modal-actions">
+                        <button type="button" class="logout-cancel-btn" id="cancelLogout">
+                            Cancel
+                        </button>
+                        <button type="button" class="logout-confirm-btn" id="confirmLogout">
+                            Yes, Log Out
+                        </button>
+                    </div>
+                <div>
+            </div>
     </aside>
 
     <main class="main-content">
 
-        <header class="topbar">
-         
+      
 <header class="topbar">
     <div class="topbar-actions">
 
@@ -82,25 +109,60 @@
                 aria-controls="notificationPanel"
             >
                 <i class="bx bx-bell notification-icon"></i>
+
+                @if (isset($unreadNotifications) && $unreadNotifications > 0)
+                    <span class="notification-badge">
+                        {{ $unreadNotifications }}
+                    </span>
+                @endif
             </button>
 
-            <div
-                class="notification-panel"
-                id="notificationPanel"
-                hidden
-            >
+            <div class="notification-panel" id="notificationPanel" hidden>
                 <div class="notification-header">
                     <h3>Notifications</h3>
-                </div>
 
-                <div class="notification-empty">
-                    <i class="bx bx-bell-off"></i>
-                    <h4>No notifications yet</h4>
-                    <p>
-                        You're all caught up! Updates about your
-                        requests will appear here.
-                    </p>
+                    <a href="{{ route('resident-notifications.index') }}">
+                        View All
+                    </a>
                 </div>
+                
+                <p>
+                    Notifications loaded:
+                        {{ isset($dashboardNotifications) ? $dashboardNotifications->count() : 'Not loaded' }}
+                    </p>
+
+                @if (isset($dashboardNotifications) && $dashboardNotifications->isNotEmpty())
+                    @foreach ($dashboardNotifications as $notification)
+                        <div class="notification-item {{ $notification->is_read ? 'read' : 'unread' }}">
+                            <h4>{{ $notification->title }}</h4>
+                            <p>{{ $notification->message }}</p>
+
+                            <small>
+                                {{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
+                            </small>
+
+                            @if (!$notification->is_read)
+                                <form
+                                    action="{{ route('resident-notifications.read', $notification->id) }}"
+                                    method="POST">
+                                    @csrf
+                                    @method('PATCH')
+
+                                    <button type="submit">Mark as Read</button>
+                                </form>
+                            @endif
+                        </div>
+                    @endforeach
+                @else
+                    <div class="notification-empty">
+                        <i class="bx bx-bell-off"></i>
+                        <h4>No notifications yet</h4>
+                        <p>
+                            You're all caught up! Updates about your
+                            requests will appear here.
+                        </p>
+                    </div>
+                @endif
             </div>
         </div>
 
@@ -123,6 +185,7 @@
 </div>
 
 <script src="{{ asset('js/notifications.js') }}" defer></script>
+<script src="{{ asset('js/logout.js') }}" defer></script>
 
 @stack('scripts')
 

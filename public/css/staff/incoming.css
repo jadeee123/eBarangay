@@ -1,0 +1,475 @@
+/* INCOMING REQUESTS PAGE */
+
+.incoming-page {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    color: #263729;
+}
+
+.incoming-heading {
+    padding: 4px 0;
+}
+
+.incoming-heading h2 {
+    margin: 0 0 7px;
+    color: #263729;
+    font-size: 23px;
+}
+
+.incoming-heading p {
+    margin: 0;
+    color: #718071;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* MAIN PANEL */
+
+.incoming-panel {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid #E5E9E1;
+    border-radius: 14px;
+    background: #FFFFFF;
+}
+
+.incoming-panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.incoming-panel-heading h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+}
+
+.incoming-panel-heading p {
+    margin: 0;
+    color: #718071;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.incoming-count {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border: 1px solid #E6E2BC;
+    border-radius: 20px;
+    background: #FAF8E9;
+    color: #346739;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* SEARCH */
+
+.incoming-toolbar {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 18px;
+}
+
+.incoming-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 420px;
+    padding: 0 13px;
+    border: 1px solid #DDE4D9;
+    border-radius: 9px;
+    background: #FFFFFF;
+    color: #718071;
+}
+
+.incoming-search:focus-within {
+    border-color: #79AE6F;
+    box-shadow: 0 0 0 3px rgba(121, 174, 111, 0.13);
+}
+
+.incoming-search i {
+    font-size: 19px;
+}
+
+.incoming-search input {
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #263729;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.incoming-search input::placeholder {
+    color: #9AA498;
+}
+
+/* TABLE */
+
+.incoming-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.incoming-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.incoming-table thead {
+    background: #F5F7F1;
+}
+
+.incoming-table th {
+    padding: 14px 13px;
+    color: #687766;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.45px;
+    white-space: nowrap;
+}
+
+.incoming-table td {
+    padding: 16px 13px;
+    border-bottom: 1px solid #EEF0EA;
+    color: #435044;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.incoming-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.incoming-table tbody tr:hover:not(:has(.incoming-empty)) {
+    background: #FCFDFB;
+}
+
+.incoming-request-id {
+    color: #346739 !important;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.incoming-status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #FBF2D8;
+    color: #80651D;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* REVIEW BUTTON */
+
+.incoming-review-btn {
+    display: inline-block;
+    padding: 8px 13px;
+    border: 1px solid #D8E4D2;
+    border-radius: 7px;
+    background: #FFFFFF;
+    color: #346739;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+}
+
+.incoming-review-btn:hover {
+    background: #346739;
+    color: #FFFFFF;
+}
+
+.incoming-review-btn:focus-visible {
+    outline: 2px solid #79AE6F;
+    outline-offset: 3px;
+}
+
+/* EMPTY STATE */
+
+.incoming-empty {
+    padding: 38px 16px;
+    text-align: center;
+}
+
+.incoming-empty i {
+    color: #79AE6F;
+    font-size: 38px;
+}
+
+.incoming-empty h4 {
+    margin: 10px 0 6px;
+    color: #346739;
+    font-size: 14px;
+}
+
+.incoming-empty p {
+    margin: 0;
+    color: #718071;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.incoming-table-note {
+    margin: 15px 0 0;
+    color: #879184;
+    font-size: 11px;
+}
+
+
+/* SIMPLE REQUEST DETAILS DESIGN */
+
+.incoming-page {
+    padding: 20px;
+    color: #263729;
+}
+
+.incoming-heading {
+    margin-bottom: 20px;
+}
+
+.incoming-heading h2 {
+    margin: 0 0 6px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.incoming-heading p {
+    margin: 0 0 10px;
+    color: #6B756A;
+    font-size: 13px;
+}
+
+.incoming-heading a {
+    color: #346739;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.incoming-heading a:hover {
+    text-decoration: underline;
+}
+
+/* DETAILS CARD */
+
+.incoming-page .incoming-panel {
+    padding: 24px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8DF;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(30, 55, 30, 0.04);
+}
+
+.incoming-panel h3 {
+    margin: 0 0 16px;
+    color: #346739;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.incoming-panel p {
+    margin: 12px 0;
+    color: #4F594E;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.incoming-panel p strong {
+    display: inline-block;
+    min-width: 145px;
+    color: #263729;
+    font-weight: 600;
+}
+
+.incoming-panel hr {
+    margin: 22px 0;
+    border: 0;
+    border-top: 1px solid #E8ECE5;
+}
+
+/* UPDATE STATUS */
+
+.incoming-panel form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.incoming-panel form label {
+    color: #354335;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.incoming-panel form select {
+    min-width: 150px;
+    padding: 9px 12px;
+    border: 1px solid #D7E0D3;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: #263729;
+    font-size: 13px;
+    outline: none;
+}
+
+.incoming-panel form select:focus {
+    border-color: #79AE6F;
+    box-shadow: 0 0 0 2px rgba(121, 174, 111, 0.15);
+}
+
+.incoming-panel .incoming-review-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border: 1px solid #346739;
+    border-radius: 6px;
+    background: #346739;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.incoming-panel .incoming-review-btn:hover {
+    background: #28552D;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .incoming-page {
+        padding: 12px;
+    }
+
+    .incoming-page .incoming-panel {
+        padding: 16px;
+    }
+
+    .incoming-panel p strong {
+        display: block;
+        min-width: 0;
+        margin-bottom: 2px;
+    }
+
+    .incoming-panel form {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .incoming-panel form select,
+    .incoming-panel form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+/* COMPACT REQUEST DETAILS HEADER */
+
+.incoming-page {
+    padding-top: 10px;
+}
+
+.incoming-page > .incoming-heading {
+    margin-bottom: 16px;
+}
+
+.incoming-page > .incoming-heading h2 {
+    margin-bottom: 4px;
+    font-size: 21px;
+}
+
+.incoming-page > .incoming-heading p {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+/* BACK BUTTON WITH LEFT ARROW */
+
+.incoming-page > .incoming-heading a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 11px;
+    border: 1px solid #D8E4D2;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: #346739;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.incoming-page > .incoming-heading a::before {
+    content: "\2190";
+    font-size: 15px;
+    line-height: 1;
+}
+
+.incoming-page > .incoming-heading a:hover {
+    background: #F2EDC2;
+    border-color: #9FCB98;
+}
+
+/* REDUCE GAP ABOVE THE DETAILS CARD */
+
+.incoming-page > .incoming-panel {
+    margin-top: 0;
+}
+
+
+/* Adjust spacing around Request Details heading */
+
+.incoming-page > .incoming-heading h2 {
+    margin-top: 0;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.incoming-page > .incoming-heading {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.incoming-page > .incoming-heading p {
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+    .incoming-panel {
+        padding: 15px;
+    }
+
+    .incoming-heading h2 {
+        font-size: 21px;
+    }
+
+    .incoming-panel-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .incoming-table {
+        min-width: 700px;
+    }
+
+    .incoming-search {
+        max-width: none;
+    }
+}

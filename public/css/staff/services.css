@@ -1,0 +1,352 @@
+
+.services-page {
+    padding: 24px;
+    color: #263b28;
+}
+
+.services-page .page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.services-page .page-heading h1 {
+    margin: 0 0 6px;
+}
+
+.services-page .page-heading p {
+    margin: 0;
+    color: #687768;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    background: #fff;
+    border: 1px solid #dce7d9;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 4px 14px rgba(40, 70, 40, 0.06);
+}
+
+.service-card-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    background: #e8f1e4;
+    color: #346739;
+    font-size: 21px;
+}
+
+.service-card h3 {
+    margin: 0 0 10px;
+}
+
+.service-card > p {
+    color: #687768;
+    line-height: 1.6;
+}
+
+.service-requirements {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #e6ece3;
+}
+
+.service-requirements ul {
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+.service-card-footer,
+.modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.service-status {
+    color: #346739;
+    background: #e8f1e4;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.primary-btn,
+.view-btn,
+.cancel-btn,
+.close-modal {
+    cursor: pointer;
+    font: inherit;
+}
+
+.primary-btn {
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 16px;
+    background: #346739;
+    color: #fff;
+}
+
+.view-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #e8f1e4;
+    color: #28542d;
+    padding: 9px 14px;
+    border-radius: 7px;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 55px 20px;
+    background: #fff;
+    border: 1px dashed #b9cbb5;
+    border-radius: 14px;
+}
+
+.empty-state > i {
+    font-size: 36px;
+    color: #79ae6f;
+}
+
+.service-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(20, 35, 22, 0.55);
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-modal.is-open {
+    display: flex;
+}
+
+.service-modal-content {
+    width: 100%;
+    max-width: 540px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 14px;
+}
+
+.modal-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.modal-heading h2 {
+    margin: 0 0 6px;
+}
+
+.modal-heading p,
+.form-hint {
+    color: #687768;
+    font-size: 14px;
+}
+
+.close-modal {
+    align-self: flex-start;
+    border: 0;
+    background: transparent;
+    font-size: 28px;
+}
+
+.service-modal form label {
+    display: block;
+    margin: 15px 0 7px;
+    font-weight: 600;
+}
+
+.service-modal input,
+.service-modal textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbd8c8;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.service-modal input:focus,
+.service-modal textarea:focus {
+    outline: 2px solid #9fcb98;
+    border-color: #346739;
+}
+
+.cancel-btn {
+    padding: 10px 15px;
+    border: 1px solid #cbd8c8;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.success-message {
+    padding: 12px;
+    background: #e8f1e4;
+    color: #28542d;
+    border-radius: 8px;
+}
+
+.error-message {
+    padding: 12px;
+    background: #fff0ed;
+    color: #9a3023;
+    border-radius: 8px;
+}
+
+.services-page select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbd8c8;
+    border-radius: 8px;
+    background: #fff;
+    font: inherit;
+}
+
+
+/* ===== MANAGE SERVICE PAGE ===== */
+
+.services-page .service-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.services-page .service-card form label {
+    margin-top: 14px;
+    color: #346739;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.services-page .service-card form input,
+.services-page .service-card form textarea,
+.services-page .service-card form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #d5e2d1;
+    border-radius: 8px;
+    background: #fff;
+    color: #263b28;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.services-page .service-card form textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.6;
+}
+
+.services-page .service-card form input:focus,
+.services-page .service-card form textarea:focus,
+.services-page .service-card form select:focus {
+    outline: none;
+    border-color: #79ae6f;
+    box-shadow: 0 0 0 3px rgba(121, 174, 111, 0.18);
+}
+
+.services-page .service-card form input::placeholder,
+.services-page .service-card form textarea::placeholder {
+    color: #9aa99a;
+}
+
+.services-page .service-card form .modal-actions {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #e4ece1;
+}
+
+.services-page .service-card form .primary-btn {
+    padding: 11px 22px;
+    border: 1px solid #346739;
+    border-radius: 8px;
+    background: #346739;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.services-page .service-card form .primary-btn:hover {
+    background: #28542d;
+    transform: translateY(-1px);
+}
+
+.services-page .service-card form .view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 20px;
+    border: 1px solid #d5e2d1;
+    border-radius: 8px;
+    background: #f2edc2;
+    color: #346739;
+    font-weight: 600;
+}
+
+.services-page .service-card form .view-btn:hover {
+    background: #e8e2ad;
+}
+
+.services-page .service-card form select {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .services-page .service-card {
+        padding: 18px;
+    }
+
+    .services-page .service-card form .modal-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .services-page .service-card form .modal-actions .primary-btn,
+    .services-page .service-card form .modal-actions .view-btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-page {
+        padding: 14px;
+    }
+
+    .services-page .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .service-modal-content {
+        padding: 18px;
+    }
+}

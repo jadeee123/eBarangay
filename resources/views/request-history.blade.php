@@ -63,13 +63,63 @@
                     </tr>
                 </thead>
 
-                <tbody id="historyTable">
-                    {{-- Request history will be loaded from the database later. --}}
-                </tbody>
+                
+<tbody id="historyTable">
+    @forelse ($requests as $request)
+        <tr
+            data-status="{{ strtolower($request->status) }}"
+            data-date="{{ \Carbon\Carbon::parse($request->created_at)->format('Y-m-d') }}"
+        >
+            <td>{{ $loop->iteration }}</td>
+
+            <td>{{ $request->service_name }}</td>
+
+            <td>
+                {{ \Carbon\Carbon::parse($request->created_at)->format('M d, Y') }}
+            </td>
+
+            <td>
+                <span class="status-badge {{ strtolower($request->status) }}">
+                    {{ $request->status }}
+                </span>
+            </td>
+
+            <td>
+                {{ $request->claim_date
+                    ? \Carbon\Carbon::parse($request->claim_date)->format('M d, Y')
+                    : '—' }}
+            </td>
+
+            <td>
+                
+<button
+    type="button"
+    class="history-view-btn"
+    data-service="{{ $request->service_name }}"
+    data-description="{{ $request->description }}"
+    data-date="{{ \Carbon\Carbon::parse($request->created_at)->format('M d, Y') }}"
+    data-status="{{ $request->status }}"
+    data-claim-date="{{ $request->claim_date
+        ? \Carbon\Carbon::parse($request->claim_date)->format('M d, Y')
+        : 'Not assigned yet' }}"
+>
+    View
+</button>
+
+            </td>
+        </tr>
+    @empty
+        {{-- No rows are rendered when there is no history. --}}
+    @endforelse
+</tbody>
+
             </table>
         </div>
 
-        <div class="history-empty-state" id="historyEmptyState">
+       <div
+       class="history-empty-state"
+       id="historyEmptyState"
+        @if ($requests->isNotEmpty()) hidden @endif>
             <div class="empty-icon">
                 <i class='bx bx-folder-open'></i>
             </div>
@@ -94,6 +144,41 @@
             </button>
         </div>
     </div>
+
+<div class="history-modal" id="historyDetailsModal" hidden>
+    <div class="history-modal-content">
+        <button type="button" class="history-modal-close" id="closeHistoryModal" aria-label="Close">
+            &times;
+        </button>
+
+        <h2>Request Details</h2>
+
+        <div class="history-detail-row">
+            <strong>Service:</strong>
+            <span id="detailService"></span>
+        </div>
+
+        <div class="history-detail-row">
+            <strong>Description:</strong>
+            <span id="detailDescription"></span>
+        </div>
+
+        <div class="history-detail-row">
+            <strong>Date Submitted:</strong>
+            <span id="detailDate"></span>
+        </div>
+
+        <div class="history-detail-row">
+            <strong>Status:</strong>
+            <span id="detailStatus"></span>
+        </div>
+
+        <div class="history-detail-row">
+            <strong>Claim Date:</strong>
+            <span id="detailClaimDate"></span>
+        </div>
+    </div>
+</div>
 
 </div>
 @endsection

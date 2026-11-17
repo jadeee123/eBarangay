@@ -32,7 +32,11 @@
         <p>Complete the information below to submit your barangay service request.</p>
     </div>
 
-    <form class="request-form" id="requestForm">
+    <form class="request-form" id="requestForm"
+           action="{{ route('requests.store') }}"
+            method="POST"
+            enctype="multipart/form-data">
+    @csrf
 
         <section class="form-section selected-service">
             <div class="section-heading">
@@ -63,7 +67,7 @@
                 </div>
                 <div>
                     <h2>Resident Information</h2>
-                    <p>Provide your personal information.</p>
+                   <p>Provide your personal information.</p>
                 </div>
             </div>
 
@@ -75,20 +79,38 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="birth_date">Date of Birth <span>*</span></label>
-                    <input type="date" id="birth_date" name="birth_date" required>
-                </div>
-
-                <div class="form-group">
                     <label for="contact_number">Contact Number <span>*</span></label>
                     <input type="tel" id="contact_number" name="contact_number"
                         placeholder="e.g. 09XXXXXXXXX" required>
                 </div>
+                
+                <div class="form-group">
+                    <label for="gender">Gender <span>*</span></label>
+                    <select name="gender" id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select></div>
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email"
                         placeholder="Enter your email address">
+                </div>      
+                
+                <div class="form-group">
+                    <label for="birth_date">Date of Birth <span>*</span></label>
+                    <input type="date" id="birth_date" name="birth_date"
+                    value="{{ old('birth_date') }}"
+                    required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age"
+                    placeholder="Age will calculate automatically"
+                    value="{{ old('age') }}"
+                    readonly>
                 </div>
 
                 <div class="form-group full-width">
@@ -148,4 +170,44 @@
     </form>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const birthDate = document.getElementById('birth_date');
+    const ageInput = document.getElementById('age');
+
+    if (!birthDate || !ageInput) {
+        console.error('Birth date or age input was not found.');
+        return;
+    }
+
+    function calculateAge() {
+        if (!birthDate.value) {
+            ageInput.value = '';
+            return;
+        }
+
+        const birth = new Date(birthDate.value + 'T00:00:00');
+        const today = new Date();
+
+        let age = today.getFullYear() - birth.getFullYear();
+
+        if (
+            today.getMonth() < birth.getMonth() ||
+            (today.getMonth() === birth.getMonth() &&
+             today.getDate() < birth.getDate())
+        ) {
+            age--;
+        }
+
+        ageInput.value = age >= 0 ? age : '';
+    }
+
+    birthDate.addEventListener('input', calculateAge);
+    birthDate.addEventListener('change', calculateAge);
+
+    calculateAge();
+});
+</script>
 @endsection
+
+

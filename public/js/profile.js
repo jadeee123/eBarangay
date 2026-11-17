@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const params = new URLSearchParams(window.location.search);
+    const requestedPanel = params.get('panel');
+    
+    if (requestedPanel) {
+    const targetMenu = document.querySelector(
+        `.settings-menu-item[data-panel="${requestedPanel}"]`
+    );
+
+    if (targetMenu) {
+        targetMenu.click();
+    }
+}
+
     const menuItems = document.querySelectorAll('.settings-menu-item');
     const panels = document.querySelectorAll('.settings-panel');
 
@@ -37,67 +50,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    const accountForm = document.getElementById('accountForm');
-
-    if (accountForm) {
-        accountForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            showMessage(
-                'accountMessage',
-                'Account saving is not connected to the database yet.'
-            );
-        });
-    }
-
     const notificationForm = document.getElementById('notificationForm');
-
-    if (notificationForm) {
-        notificationForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            showMessage(
-                'notificationMessage',
-                'Notification preferences are not saved yet.'
-            );
-        });
-    }
-
-    const privacyForm = document.getElementById('privacyForm');
-
-    if (privacyForm) {
-        privacyForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const currentPassword =
-                document.getElementById('currentPassword').value;
-
-            const newPassword =
-                document.getElementById('newPassword').value;
-
-            const confirmPassword =
-                document.getElementById('confirmPassword').value;
-
-            if (!currentPassword || !newPassword || !confirmPassword) {
-                showMessage(
-                    'privacyMessage',
-                    'Please complete all password fields.'
-                );
-                return;
-            }
-
-            if (newPassword !== confirmPassword) {
-                showMessage(
-                    'privacyMessage',
-                    'The new passwords do not match.'
-                );
-                return;
-            }
-
-            showMessage(
-                'privacyMessage',
-                'Password updating requires secure Laravel backend validation.'
-            );
-        });
-    }
 });
