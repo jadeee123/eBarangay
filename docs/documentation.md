@@ -178,3 +178,135 @@ Based on these concerns, the group identified the main features needed for the s
 The group also identified the features needed by barangay officials. These include reviewing submitted requests, checking the information provided by residents, updating request statuses, setting claim dates, and keeping records of submitted and completed requests.
 
 The gathered requirements served as the basis for planning and designing the system. They helped the group decide which features to include so the system could provide residents with a more convenient way to request services and help barangay officials manage requests in a more organized manner.
+
+# 2.3 Functional Requirements
+
+The functional requirements describe the main features of the eBarangay Service Request System for Barangay Cuambugan. These features explain what residents and authorized barangay staff can do when using the system.
+
+# Functional Requirements Table
+
+| No. | Module | Functional Requirement |
+|---|---|---|
+| 1 | User Account Management | The system allows residents to create an account and log in. |
+| 2 | Service Information | The system allows residents to view available barangay services and their requirements. |
+| 3 | Online Service Request | The system allows residents to select a service, provide the required information and documents, and submit a request online. |
+| 4 | Request Tracking | The system allows residents to view the status and progress of their submitted requests. |
+| 5 | Request History | The system allows residents to view their previous and completed service requests. |
+| 6 | Email Notification | The system sends email notifications to residents about updates to their requests. |
+| 7 | Claim Date Scheduling | The system allows authorized barangay staff to set the scheduled date for claiming requested documents or services. Residents can view the scheduled date. |
+| 8 | Request Management | The system allows authorized barangay staff to review submitted requests and check the information and requirements provided by residents. |
+| 9 | Request Status Management | The system allows authorized barangay staff to update request statuses, such as Pending, Processing, Approved, or Completed. |
+| 10 | Request Records Management | The system keeps organized records of submitted and completed service requests. |
+| 11 | Service Request Monitoring | The system allows authorized barangay staff to monitor requests and identify frequently requested barangay services or documents. |
+| 12 | Announcements and Information | The system provides announcements or important barangay information to help keep residents informed. |
+| 13 | Role-Based Access | The system provides different access permissions for residents and authorized barangay staff based on their assigned roles. |
+
+These functional requirements serve as a guide for checking whether the system's main features work according to the project objectives. They focus on making service requests easier for residents and helping barangay staff handle requests in a more organized way.
+
+# 2.4 Non-Functional Requirements
+
+The non-functional requirements describe how the eBarangay Service Request System should work. These requirements focus on security, ease of use, performance, reliability, responsiveness, compatibility, and backup. They help ensure that the system is convenient for residents and useful for authorized barangay staff.
+
+# Security
+
+The system should protect the information provided by residents. Only authorized users should be allowed to access features based on their assigned roles. Residents should only be able to access the features and request information permitted for their accounts, while authorized barangay staff can manage and process service requests.
+
+# Usability
+
+The system should have a simple and understandable interface. Residents should be able to find available services, read their requirements, submit requests, and check request updates without difficulty. Barangay staff should also be able to review and manage requests through clear and organized pages.
+
+# Performance
+
+The system should process common activities, such as logging in, viewing available services, submitting requests, and checking request status, within a reasonable amount of time. It should handle normal system use without unnecessary delays.
+
+# Reliability
+
+The system should work properly during normal use. Its main features, including request submission, status updates, claim date scheduling, and request history, should provide correct and consistent information. Errors should be handled properly to reduce problems during transactions.
+
+# Responsiveness
+
+The system should display its pages and information properly on different screen sizes. Its layout should be easy to use on desktop computers, laptops, tablets, and mobile phones, provided the device has a supported browser and internet access.
+
+# Compatibility
+
+The system should be accessible through commonly used web browsers. Its main features should work properly on supported browsers and devices with an internet connection.
+
+# Backup and Data Recovery
+
+The system's data should be backed up regularly to reduce the risk of losing important service request records. Backup copies should be stored securely and should be available for recovery when needed. Access to backup files should be limited to authorized persons.
+
+These non-functional requirements serve as guidelines for checking the system's quality and ease of use. They help ensure that the eBarangay Service Request System can support the online request process and help barangay staff manage service requests in an organized manner.
+
+# 2.5 System Architecture
+
+The eBarangay Service Request System uses a web-based architecture with four main components: the web browser, application server, database, and email notification service. The web browser allows residents to view available barangay services and their requirements, submit service requests, track request statuses, and check scheduled claim dates. Barangay staff use the browser to review submitted requests, update request statuses, set claim dates, and manage service request records.
+
+The application server processes the actions made by residents and barangay staff. It handles service requests, updates request statuses, sets claim dates, and communicates with the database to save and retrieve information. The database stores account details, available services, submitted requests, request statuses, and scheduled claim dates. This allows the system to keep information organized and make it available when needed. Meanwhile, the email notification service sends residents updates about their requests when the feature is supported and properly configured.
+
+When residents or barangay staff access the system through a web browser, their actions are sent to the application server for processing. The server communicates with the database to save or retrieve the necessary information and then displays the results in the browser. When email notifications are enabled, residents can also receive updates about their service requests through email.
+
+# 2.6 Use Case Diagram
+
+The use case diagram illustrates how the two main actors, Barangay Staff/Officials and Residents, interact with the eBarangay Service Request System. It shows the functions available to each actor and how they use the system to complete their tasks.
+
+Residents can create an account, log in, view available barangay services, and submit service requests by providing the required information. They can also view their scheduled claim dates and receive notifications about their requests.
+
+On the other hand, Barangay Staff/Officials can log in to the system, review service requests, check the information submitted by residents, update request statuses, and set claim dates. They can also maintain request records and monitor frequently requested services.
+
+The diagram also shows two included functions. When a resident submits a service request, providing the required information is part of the process. Similarly, when staff review a service request, checking the submitted information is included in the review process.
+
+Overall, the use case diagram presents the main functions of the eBarangay system and shows how residents and barangay staff work together in processing and monitoring service requests.
+
+# 2.7 Database Design / ERD
+
+The Entity-Relationship Diagram (ERD) shows the structure of the database used by the eBarangay Service Request System. It consists of three main entities: Users, Services, and Requests.
+
+The Users table stores account information, including the user's name, email, password, and role. The Services table contains information about the barangay services available in the system. The Requests table stores the service requests submitted by residents, including their descriptions, statuses, claim dates, and the staff member who processed each request.
+
+The database has a one-to-many relationship between Users and Requests because one user can submit multiple service requests. Services and Requests also have a one-to-many relationship because one service can be requested many times. The `processed_by` field connects a request to the user who processed it, which is optional.
+
+# Entity Relationships
+
+**Users and Requests (One-to-Many):** One user can submit multiple service requests, but each request belongs to one user.
+**Services and Requests (One-to-Many):** One service can have many submitted requests, but each request is connected to one service.
+**Users and Requests through `processed_by` (One-to-Many):** One user, acting as an administrator or staff member, can process multiple requests. However, the `processed_by` field may be empty if a request has not yet been processed.
+
+This database structure helps organize user accounts, barangay services, and service requests while keeping their related information connected.
+
+# 2.9 Development Tools and Technologies
+
+The eBarangay Service Request System was developed using different tools and technologies for writing code, designing the interface, and managing the project files. These tools helped the group develop and organize the system.
+
+# Development Tools and Technologies Table
+
+| Tools and Technologies | Description |
+|---|---|
+| PHP | Used as the server-side programming language for processing system operations. |
+| Laravel | A PHP framework used to develop the web application and organize its functions. |
+| HTML | Used to structure the content and elements of the web pages. |
+| CSS | Used to design the layout, colors, and appearance of the system. |
+| Visual Studio Code | Used as the code editor for writing and editing the project's source code. |
+| Git | Used to track changes in the source code during development. |
+| GitHub | Used to store the project repository and manage the team's code and documentation. |
+
+*Table 3: Development Tools and Technologies*
+
+These tools and technologies helped the group develop the eBarangay Service Request System, organize its source code, design the user interface, and manage project files. Each tool served a specific purpose in the development process.
+
+# 2.10 Testing Methodology
+
+The eBarangay Service Request System will be tested to check whether its features work properly and meet the needs of residents and authorized barangay staff. The testing process will focus on the main functions of the system, how its different parts work together, and whether users can use it without difficulty.
+
+# Functional Testing
+
+Functional testing will be used to check whether each feature works as expected. This includes account registration and login, viewing available barangay services and their requirements, submitting service requests, tracking request status, viewing request history, receiving email notifications, and checking scheduled claim dates. The staff functions will also be checked, including reviewing requests, updating request statuses, setting claim dates, and managing service request records.
+
+# Integration Testing
+
+Integration testing will be conducted to check whether the different parts of the system work together correctly. For example, when a resident submits a service request, the system should save the information in the database and display the request to the authorized staff. When staff update the request status or set a claim date, the changes should be reflected in the resident's account. Email notifications will also be checked to see whether request updates are sent when the feature is properly configured.
+
+# User Acceptance Testing
+
+User acceptance testing will be used to check whether the system is easy to understand and meets the needs of its intended users. Residents can check whether they can navigate the system, submit requests, and monitor their progress. Authorized barangay staff can check whether they can review and process requests, update statuses, and set claim dates. Feedback from users can help identify features that need improvement.
+
+The testing process will help the group identify errors and areas that need improvement before the system is presented as complete. The actual test cases, results, and any problems found during testing will be presented in Chapter 4.
