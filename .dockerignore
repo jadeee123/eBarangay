@@ -1,0 +1,10 @@
+.git
+.env
+.env.*
+!.env.example
+node_modules
+vendor
+tests
+.vercel
+test-guzzle.php
+test-ssl.php
