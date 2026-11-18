@@ -112,7 +112,7 @@ DB::table('contact_messages')
         'user_id' => $contactMessage->user_id,
         'request_id' => null,
         'title' => 'New Reply from Barangay',
-        'message' => 'The barangay office has replied to your contact message: ' . $contactMessage->subject,
+        'message' => 'Reply to "' . $contactMessage->subject . '": ' . $validated['reply_message'],
         'type' => 'contact_reply',
         'is_read' => false,
         'created_at' => now(),

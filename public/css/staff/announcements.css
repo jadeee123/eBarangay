@@ -1,0 +1,341 @@
+
+.announcements-page {
+    width: 100%;
+}
+
+.announcements-page .page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.announcements-page .page-heading h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #263b2b;
+}
+
+.announcements-page .page-heading p {
+    margin: 0;
+    color: #718071;
+    font-size: 14px;
+}
+
+.announcements-page .primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 11px 17px;
+    border: 1px solid #e6d77c;
+    border-radius: 9px;
+    background: #f4edbd;
+    color: #294d31;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.announcements-page .primary-btn:hover {
+    background: #eee3a0;
+}
+
+.announcements-page .success-message,
+.announcements-page .error-message {
+    padding: 13px 16px;
+    margin-bottom: 20px;
+    border-radius: 9px;
+}
+
+.announcements-page .success-message {
+    color: #245b34;
+    background: #e8f3e7;
+}
+
+.announcements-page .error-message {
+    color: #8a2929;
+    background: #fbeaea;
+}
+
+.announcements-page .error-message p {
+    margin: 3px 0;
+}
+
+.announcement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.announcement-card {
+    min-width: 0;
+    padding: 22px;
+    background: #fff;
+    border: 1px solid #e2e7df;
+    border-radius: 15px;
+    box-shadow: 0 2px 7px rgba(35, 58, 37, 0.04);
+}
+
+.announcement-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.announcement-card-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #f5efc8;
+    color: #315c39;
+    font-size: 25px;
+}
+
+.announcement-status {
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.announcement-status.published {
+    background: #e7f1e3;
+    color: #32623a;
+}
+
+.announcement-status.draft {
+    background: #f5efcf;
+    color: #77631c;
+}
+
+.announcement-card h3 {
+    margin: 0 0 10px;
+    color: #293c2d;
+    font-size: 18px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.announcement-content {
+    margin: 0 0 18px;
+    color: #687568;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.announcement-meta {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding-bottom: 16px;
+    color: #7a8579;
+    font-size: 12px;
+}
+
+.announcement-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid #edf0e9;
+}
+
+.announcement-card-footer form {
+    margin: 0;
+}
+
+.announcements-page .view-btn,
+.announcements-page .delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px 12px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.announcements-page .view-btn {
+    border: 1px solid #dce5d8;
+    background: #f5f8f2;
+    color: #315b38;
+}
+
+.announcements-page .delete-btn {
+    border: 1px solid #efd9d6;
+    background: #fff;
+    color: #a43e35;
+}
+
+.announcements-page .empty-state {
+    grid-column: 1 / -1;
+    padding: 55px 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px dashed #d9e1d5;
+    border-radius: 15px;
+}
+
+.announcements-page .empty-state > i {
+    font-size: 42px;
+    color: #527a52;
+}
+
+.announcements-page .empty-state h3 {
+    margin: 12px 0 8px;
+    color: #304b34;
+}
+
+.announcements-page .empty-state p {
+    color: #718071;
+    font-size: 14px;
+}
+
+.announcement-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(20, 35, 23, 0.55);
+    overflow-y: auto;
+}
+
+.announcement-modal.show {
+    display: flex;
+}
+
+.announcement-modal-content {
+    width: 100%;
+    max-width: 570px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 26px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+}
+
+.announcement-modal .modal-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.announcement-modal .modal-heading h2 {
+    margin: 0 0 7px;
+    color: #293d2d;
+    font-size: 22px;
+}
+
+.announcement-modal .modal-heading p {
+    margin: 0;
+    color: #718071;
+    font-size: 13px;
+}
+
+.announcement-modal .close-modal {
+    border: 0;
+    background: transparent;
+    color: #596659;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.announcement-modal form > label:not(.announcement-checkbox) {
+    display: block;
+    margin: 15px 0 7px;
+    color: #344936;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.announcement-modal input[type="text"],
+.announcement-modal textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #dce3d8;
+    border-radius: 8px;
+    outline: none;
+    background: #fff;
+    color: #293d2d;
+    font: inherit;
+    font-size: 14px;
+}
+
+.announcement-modal input[type="text"]:focus,
+.announcement-modal textarea:focus {
+    border-color: #6b9669;
+    box-shadow: 0 0 0 3px rgba(107, 150, 105, 0.12);
+}
+
+.announcement-modal textarea {
+    resize: vertical;
+}
+
+.announcement-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 17px;
+    color: #485849;
+    font-size: 13px;
+}
+
+.announcement-checkbox input {
+    accent-color: #416d43;
+    width: 16px;
+    height: 16px;
+}
+
+.announcement-modal .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.announcement-modal .cancel-btn {
+    padding: 10px 16px;
+    border: 1px solid #dce3d8;
+    border-radius: 8px;
+    background: #fff;
+    color: #4f5d50;
+    cursor: pointer;
+}
+
+@media (max-width: 850px) {
+    .announcement-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .announcements-page .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .announcement-modal-content {
+        padding: 20px;
+    }
+}

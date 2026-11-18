@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-
 class RequestController extends Controller
 {
      public function store(Request $request)
@@ -92,7 +91,7 @@ public function dashboard()
     ->where('is_published', true)
     ->whereNotNull('published_at')
     ->orderByDesc('published_at')
-    ->limit('3')
+    ->limit(3)
     ->get();
 
     $totalRequests = DB::table('requests')
@@ -136,14 +135,6 @@ public function dashboard()
     'dashboardNotifications',
     'announcements'
 ));
-
-    return view('dashboard', compact(
-        'totalRequests',
-        'pendingRequests',
-        'approvedRequests',
-        'claimDates',
-        'recentRequests'
-    ));
 }
 
 public function cancel($id)

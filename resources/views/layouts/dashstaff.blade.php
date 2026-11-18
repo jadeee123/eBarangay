@@ -60,12 +60,18 @@
         </a>
                 
             <div class="staff-nav-label">MANAGEMENT</div>
+            
+            <a href="{{ route('staff.announcements.index') }}"
+            class="staff-nav-link {{ request()->is('staff/announcements*') ? 'active' : '' }}">
+            <i class="bx bx-bell"></i>
+            <span>Announcements</span>
+        </a>
 
-            <a href="{{ url('/staff/services') }}"
-               class="staff-nav-link {{ request()->is('staff/services*') ? 'active' : '' }}">
-                <i class="bx bx-briefcase-alt-2"></i>
-                <span>Services</span>
-            </a>
+        <a href="{{ url('/staff/services') }}"
+        class="staff-nav-link {{ request()->is('staff/services*') ? 'active' : '' }}">
+        <i class="bx bx-briefcase-alt-2"></i>
+        <span>Services</span>
+    </a>
 
             <a href="{{ url('/staff/reports') }}"
                class="staff-nav-link {{ request()->is('staff/reports*') ? 'active' : '' }}">

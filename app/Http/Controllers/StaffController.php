@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 
 class StaffController extends Controller
 {
-    public function residents()
+public function residents()
 {
     $residents = \Illuminate\Support\Facades\DB::table('users')
         ->select('id', 'name', 'email', 'created_at')
+        ->where('role', 'resident')
         ->orderBy('name')
         ->get();
 
     return view('staff.residents', compact('residents'));
 }
+
 }

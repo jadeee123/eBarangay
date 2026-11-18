@@ -18,6 +18,7 @@ use App\Http\Controllers\StaffServicesController;
 use App\Http\Controllers\StaffReportsController;
 use App\Http\Controllers\StaffSettingsController;
 use App\Http\Controllers\ContactMessageController;
+use App\Http\Controllers\StaffAnnouncementController;
 
 
 
@@ -197,3 +198,25 @@ Route::post('/contact-messages', [ContactMessageController::class, 'store'])
 Route::post('/contact-messages/{id}/reply', [ContactMessageController::class, 'reply'])
     ->middleware('auth')
     ->name('contact-messages.reply');
+
+    // staff announcement
+
+Route::get('/staff/announcements', [
+    StaffAnnouncementController::class,
+    'index'
+])->name('staff.announcements.index');
+
+Route::post('/staff/announcements', [
+    StaffAnnouncementController::class,
+    'store'
+])->name('staff.announcements.store');
+
+Route::put('/staff/announcements/{id}', [
+    StaffAnnouncementController::class,
+    'update'
+])->name('staff.announcements.update');
+
+Route::delete('/staff/announcements/{id}', [
+    StaffAnnouncementController::class,
+    'destroy'
+])->name('staff.announcements.destroy');
