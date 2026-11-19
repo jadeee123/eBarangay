@@ -16,19 +16,21 @@ public function redirect()
 }
 
 
-    public function callback()
-    {
-        $googleUser = Socialite::driver('google')->user();
+public function callback()
+{
+    $sessionState = request()->session()->get('state');
+    $callbackState = request()->query('state');
 
-        $user = User::where('email', $googleUser->getEmail())->first();
+    \Illuminate\Support\Facades\Log::info('Google OAuth state check', [
+        'session_state_exists' => is_string($sessionState),
+        'callback_state_exists' => is_string($callbackState),
+        'states_match' => is_string($sessionState)
+            && is_string($callbackState)
+            && hash_equals($sessionState, $callbackState),
+    ]);
 
-        if (!$user) {
-            $user = User::create([
-                'name' => $googleUser->getName() ?? 'Google User',
-                'email' => $googleUser->getEmail(),
-                'password' => bcrypt(Str::random(32)),
-            ]);
-        }
+    $googleUser = Socialite::driver('google')->user();
+
         
         Auth::login($user);
         
