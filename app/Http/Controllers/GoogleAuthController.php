@@ -18,16 +18,18 @@ public function redirect()
 
 public function callback()
 {
-    $sessionState = request()->session()->get('state');
-    $callbackState = request()->query('state');
+    
+$sessionState = request()->session()->get('state');
+$callbackState = request()->query('state');
 
-    \Illuminate\Support\Facades\Log::info('Google OAuth state check', [
-        'session_state_exists' => is_string($sessionState),
-        'callback_state_exists' => is_string($callbackState),
-        'states_match' => is_string($sessionState)
-            && is_string($callbackState)
-            && hash_equals($sessionState, $callbackState),
-    ]);
+return response()->json([
+    'session_state_exists' => is_string($sessionState),
+    'callback_state_exists' => is_string($callbackState),
+    'states_match' => is_string($sessionState)
+        && is_string($callbackState)
+        && hash_equals($sessionState, $callbackState),
+]);
+
 
     $googleUser = Socialite::driver('google')->user();
 
