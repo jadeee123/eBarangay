@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     @stack('styles')
+
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet">
 </head>
@@ -19,21 +21,22 @@
 
         <div class="logo">
             <img src="{{ asset('images/ebarangay.png') }}"
-            alt="Barangay Cuambogan">
+                 alt="Barangay Cuambogan">
         </div>
 
         <nav class="sidebar-menu">
+
             <a href="{{ url('/dashboard') }}"
                class="{{ request()->is('dashboard') ? 'active' : '' }}">
                 <i class="bx bxs-home"></i>
                 <span>Dashboard</span>
             </a>
-            
+
             <a href="{{ url('/request') }}"
-            class="{{ request()->is('request') ? 'active' : '' }}">
-            <i class="bx bxs-file-plus"></i>
-            <span>Submit Request</span>
-           </a>
+               class="{{ request()->is('request') ? 'active' : '' }}">
+                <i class="bx bxs-file-plus"></i>
+                <span>Submit Request</span>
+            </a>
 
             <a href="{{ url('/my-requests') }}"
                class="{{ request()->is('my-requests') ? 'active' : '' }}">
@@ -52,127 +55,180 @@
                 <i class="bx bx-user"></i>
                 <span>Profile</span>
             </a>
-            
-            <div class="sidebar-help">
-                <i class="bx bx-headphone"></i>
-                <h3>Need Help?</h3>
-                <p>Contact your barangay office for assistance.</p>
-                
-                <a href="{{ route('help') }}" class="contact-btn">
-                    <i class="bx bx-phone"></i>
-                    Barangay Contact
-                </a>
-            </div>
-            
-            <form action="{{ route('logout') }}" method="POST" class="sidebar-logout-form" id="logoutForm">
-                @csrf
-                <button type="button" class="sidebar-logout" id="logoutTrigger">
-                    <i class="bx bx-log-out"></i>
-                    <span>Log Out</span>
-                </button>
-            </form>
-            
-            <div class="logout-modal" id="logoutModal" hidden>
-                <div class="logout-modal-content" role="dialog" aria-modal="true" aria-labelledby="logoutTitle">
-                    <div class="logout-modal-icon">
-                        <i class="bx bx-log-out"></i>
-                    </div>
-                    
-                    <h2 id="logoutTitle">Log Out?</h2>
-                    <p>Are you sure you want to log out of your eBarangay account?</p>
-                    
-                    <div class="logout-modal-actions">
-                        <button type="button" class="logout-cancel-btn" id="cancelLogout">
-                            Cancel
-                        </button>
-                        <button type="button" class="logout-confirm-btn" id="confirmLogout">
-                            Yes, Log Out
-                        </button>
-                    </div>
-                <div>
-            </div>
+
+        </nav>
+
+        <div class="sidebar-help">
+            <i class="bx bx-headphone"></i>
+            <h3>Need Help?</h3>
+            <p>Contact your barangay office for assistance.</p>
+
+            <a href="{{ route('help') }}" class="contact-btn">
+                <i class="bx bx-phone"></i>
+                Barangay Contact
+            </a>
+        </div>
+
+        <form action="{{ route('logout') }}"
+              method="POST"
+              class="sidebar-logout-form"
+              id="logoutForm">
+            @csrf
+
+            <button type="button"
+                    class="sidebar-logout"
+                    id="logoutTrigger">
+                <i class="bx bx-log-out"></i>
+                <span>Log Out</span>
+            </button>
+        </form>
+
     </aside>
+
+    <!-- Logout Confirmation Modal: outside the sidebar -->
+    <div class="logout-modal" id="logoutModal" hidden>
+        <div class="logout-modal-content"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="logoutTitle">
+
+            <div class="logout-modal-icon">
+                <i class="bx bx-log-out"></i>
+            </div>
+
+            <h2 id="logoutTitle">Log Out?</h2>
+
+            <p>
+                Are you sure you want to log out of your eBarangay account?
+            </p>
+
+            <div class="logout-modal-actions">
+                <button type="button"
+                        class="logout-cancel-btn"
+                        id="cancelLogout">
+                    Cancel
+                </button>
+
+                <button type="button"
+                        class="logout-confirm-btn"
+                        id="confirmLogout">
+                    Yes, Log Out
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="sidebar-overlay" id="residentSidebarOverlay"></div>
 
     <main class="main-content">
 
-      
-<header class="topbar">
-    <div class="topbar-actions">
+        <header class="topbar">
 
-        <div class="notification-wrapper">
-            <button
-                type="button"
-                class="notification-btn"
-                id="notificationBtn"
-                aria-label="Open notifications"
-                aria-expanded="false"
-                aria-controls="notificationPanel"
-            >
-                <i class="bx bx-bell notification-icon"></i>
-
-                @if (isset($unreadNotifications) && $unreadNotifications > 0)
-                    <span class="notification-badge">
-                        {{ $unreadNotifications }}
-                    </span>
-                @endif
+            <button type="button"
+                    class="menu-btn"
+                    id="residentMenuBtn"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                <i class="bx bx-menu"></i>
             </button>
 
-            <div class="notification-panel" id="notificationPanel" hidden>
-                <div class="notification-header">
-                    <h3>Notifications</h3>
+            <div class="topbar-actions">
 
-                    <a href="{{ route('resident-notifications.index') }}">
-                        View All
-                    </a>
-                </div>
-                
-                <p>
-                    Notifications loaded:
-                        {{ isset($dashboardNotifications) ? $dashboardNotifications->count() : 'Not loaded' }}
-                    </p>
+                <div class="notification-wrapper">
 
-                @if (isset($dashboardNotifications) && $dashboardNotifications->isNotEmpty())
-                    @foreach ($dashboardNotifications as $notification)
-                        <div class="notification-item {{ $notification->is_read ? 'read' : 'unread' }}">
-                            <h4>{{ $notification->title }}</h4>
-                            <p>{{ $notification->message }}</p>
+                    <button type="button"
+                            class="notification-btn"
+                            id="notificationBtn"
+                            aria-label="Open notifications"
+                            aria-expanded="false"
+                            aria-controls="notificationPanel">
 
-                            <small>
-                                {{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
-                            </small>
+                        <i class="bx bx-bell notification-icon"></i>
 
-                            @if (!$notification->is_read)
-                                <form
-                                    action="{{ route('resident-notifications.read', $notification->id) }}"
-                                    method="POST">
-                                    @csrf
-                                    @method('PATCH')
+                        @if (isset($unreadNotifications) && $unreadNotifications > 0)
+                            <span class="notification-badge">
+                                {{ $unreadNotifications }}
+                            </span>
+                        @endif
 
-                                    <button type="submit">Mark as Read</button>
-                                </form>
-                            @endif
+                    </button>
+
+                    <div class="notification-panel"
+                         id="notificationPanel"
+                         hidden>
+
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+
+                            <a href="{{ route('resident-notifications.index') }}">
+                                View All
+                            </a>
                         </div>
-                    @endforeach
-                @else
-                    <div class="notification-empty">
-                        <i class="bx bx-bell-off"></i>
-                        <h4>No notifications yet</h4>
+
                         <p>
-                            You're all caught up! Updates about your
-                            requests will appear here.
+                            Notifications loaded:
+                            {{ isset($dashboardNotifications) ? $dashboardNotifications->count() : 'Not loaded' }}
                         </p>
+
+                        @if (isset($dashboardNotifications) && $dashboardNotifications->isNotEmpty())
+
+                            @foreach ($dashboardNotifications as $notification)
+
+                                <div class="notification-item {{ $notification->is_read ? 'read' : 'unread' }}">
+
+                                    <h4>{{ $notification->title }}</h4>
+
+                                    <p>{{ $notification->message }}</p>
+
+                                    <small>
+                                        {{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
+                                    </small>
+
+                                    @if (!$notification->is_read)
+                                        <form
+                                            action="{{ route('resident-notifications.read', $notification->id) }}"
+                                            method="POST">
+
+                                            @csrf
+                                            @method('PATCH')
+
+                                            <button type="submit">
+                                                Mark as Read
+                                            </button>
+
+                                        </form>
+                                    @endif
+
+                                </div>
+
+                            @endforeach
+
+                        @else
+
+                            <div class="notification-empty">
+                                <i class="bx bx-bell-off"></i>
+
+                                <h4>No notifications yet</h4>
+
+                                <p>
+                                    You're all caught up! Updates about your
+                                    requests will appear here.
+                                </p>
+                            </div>
+
+                        @endif
+
                     </div>
-                @endif
+
+                </div>
+
+                <div class="user-info">
+                    <strong>Resident</strong>
+                    <span>eBarangay Account</span>
+                </div>
+
             </div>
-        </div>
-
-        <div class="user-info">
-            <strong>Resident</strong>
-            <span>eBarangay Account</span>
-        </div>
-
-    </div>
-</header>
 
         </header>
 
@@ -186,6 +242,33 @@
 
 <script src="{{ asset('js/notifications.js') }}" defer></script>
 <script src="{{ asset('js/logout.js') }}" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const dashboard = document.querySelector('.dashboard');
+    const menuButton = document.getElementById('residentMenuBtn');
+    const overlay = document.getElementById('residentSidebarOverlay');
+    const sidebar = document.querySelector('.sidebar');
+
+    if (!dashboard || !menuButton || !overlay || !sidebar) return;
+
+    function closeSidebar() {
+        dashboard.classList.remove('mobile-sidebar-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+    }
+
+    menuButton.addEventListener('click', function () {
+        const isOpen = dashboard.classList.toggle('mobile-sidebar-open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    overlay.addEventListener('click', closeSidebar);
+
+    sidebar.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeSidebar);
+    });
+});
+</script>
 
 @stack('scripts')
 
