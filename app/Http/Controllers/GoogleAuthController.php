@@ -9,10 +9,15 @@ use Laravel\Socialite\Facades\Socialite;
 
 class GoogleAuthController extends Controller
 {
-    
-public function redirect()
+ public function redirect()
 {
-    return Socialite::driver('google')->redirect();
+    $response = Socialite::driver('google')->redirect();
+
+    logger()->info('Google redirect state check', [
+        'state_exists' => is_string(session()->get('state')),
+    ]);
+
+    return $response;
 }
 
 public function callback()
