@@ -15,31 +15,28 @@ public function redirect()
     return Socialite::driver('google')->redirect();
 }
 
-
 public function callback()
 {
-    $sessionState = request()->session()->get('state');
-    $callbackState = request()->query('state');
-
-    \Illuminate\Support\Facades\Log::info('Google OAuth state check', [
-        'session_state_exists' => is_string($sessionState),
-        'callback_state_exists' => is_string($callbackState),
-        'states_match' => is_string($sessionState)
-            && is_string($callbackState)
-            && hash_equals($sessionState, $callbackState),
-    ]);
-
     $googleUser = Socialite::driver('google')->user();
 
-        
-        Auth::login($user);
-        
-        request()->session()->regenerate();
-        
-        if ($user->role === 'staff') {
-            return redirect('/dashstaff');
-            }
-            
-            return redirect('/dashboard');
+    $user = User::where('email', $googleUser->getEmail())->first();
+
+    if (!$user) {
+        $user = User::create([
+            'name' => $googleUser->getName() ?? 'Google User',
+            'email' => $googleUser->getEmail(),
+            'password' => bcrypt(Str::random(32)),
+        ]);
     }
+
+    Auth::login($user);
+
+    request()->session()->regenerate();
+
+    if ($user->role === 'staff') {
+        return redirect('/dashstaff');
+    }
+
+    return redirect('/dashboard');
+}
 }
