@@ -123,7 +123,7 @@
                 <form method="POST"
                     action="{{ route('staff.settings.password') }}">
                     @csrf
-                    @method('PATCH')
+                    @method('PUT')
 
                     <div class="settings-field">
                         <label for="current_password">Current Password</label>
