@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleAuthController;
@@ -19,8 +20,6 @@ use App\Http\Controllers\StaffReportsController;
 use App\Http\Controllers\StaffSettingsController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\StaffAnnouncementController;
-
-
 
 Route::get('/', function () {
     return view('landing');
@@ -59,7 +58,14 @@ Route::patch('/resident-notifications/{id}/read',
     )->name('resident-notifications.read');
 });
 
-Route::view('/request', 'request')
+Route::get('/request', function () {
+    $services = DB::table('services')
+        ->where('is_active', true)
+        ->orderBy('name')
+        ->get();
+
+    return view('request', compact('services'));
+})
     ->name('request')
     ->middleware('auth');
 

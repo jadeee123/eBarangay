@@ -29,11 +29,15 @@ public function redirect()
                 'password' => bcrypt(Str::random(32)),
             ]);
         }
-
+        
         Auth::login($user);
-
+        
         request()->session()->regenerate();
-
-        return redirect('/dashboard');
+        
+        if ($user->role === 'staff') {
+            return redirect('/dashstaff');
+            }
+            
+            return redirect('/dashboard');
     }
 }
