@@ -9,14 +9,12 @@ use Laravel\Socialite\Facades\Socialite;
 
 class GoogleAuthController extends Controller
 {
-    public function redirect()
+    
+public function redirect()
 {
-    return Socialite::driver('google')
-        ->setHttpClient(new \GuzzleHttp\Client([
-            'verify' => 'C:/Users/User/Downloads/cacert.pem',
-        ]))
-        ->redirect();
+    return Socialite::driver('google')->redirect();
 }
+
 
     public function callback()
     {
