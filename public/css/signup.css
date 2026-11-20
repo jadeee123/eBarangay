@@ -261,6 +261,34 @@
     }
 }
 
+
+/* Mobile Sign Up modal improvements */
+@media (max-width: 480px) {
+    #signupModal.modal {
+        padding: 12px;
+    }
+
+    #signupModal .wrapper,
+    .signup-modal.standalone .wrapper {
+        width: 100%;
+        max-width: 420px;
+        max-height: calc(100vh - 24px);
+        overflow-y: auto;
+        padding: 55px 22px 22px;
+        transform: none;
+    }
+}
+
+/* Short mobile screens */
+@media (max-height: 600px) {
+    #signupModal .wrapper,
+    .signup-modal.standalone .wrapper {
+        max-height: calc(100vh - 20px);
+        padding: 45px 22px 18px;
+    }
+}
+
+
 /* Short screens */
 @media (max-height: 700px) {
     #signupModal .wrapper,

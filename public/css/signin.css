@@ -204,18 +204,35 @@
 }
 
 
-/* Small screens */
+/* Mobile Sign In modal */
 @media (max-width: 480px) {
+    #signinModal.modal {
+        padding: 12px;
+        overflow-y: auto;
+    }
+
     #signinModal .wrapper {
-        padding: 65px 24px 25px;
+        width: 100%;
+        max-width: 420px;
+        max-height: calc(100vh - 24px);
+        overflow-y: auto;
+        margin: auto;
+        padding: 60px 24px 25px;
     }
 
-    #signinModal .wrapper h1 {
-        font-size: 28px;
-    }
-
-    #signinModal .signin-logo {
-        width: 36px;
-        height: 36px;
+    #signinModal .input-box {
+        margin: 22px 0;
     }
 }
+
+/* Short mobile screens */
+@media (max-height: 600px) {
+    #signinModal.modal {
+        align-items: flex-start;
+    }
+
+    #signinModal .wrapper {
+        margin: 10px auto;
+    }
+}
+
