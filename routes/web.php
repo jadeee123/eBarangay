@@ -70,7 +70,12 @@ Route::get('/request', function () {
     ->middleware('auth');
 
 Route::get('/request/create', function () {
-    return view('request-form');
+    $services = DB::table('services')
+        ->where('is_active', true)
+        ->orderBy('name')
+        ->get();
+
+    return view('request-form', compact('services'));
 })->name('requests.create')->middleware('auth');
 
 Route::get('/my-requests', [RequestController::class, 'index'])
@@ -149,6 +154,11 @@ Route::patch('/staff/requests/{id}/status', [
     StaffRequestController::class,
     'updateStatus'
 ])->name('staff.requests.updateStatus');
+
+Route::get('/staff/requests/{id}/document', [
+    StaffRequestController::class,
+    'document'
+])->middleware('auth')->name('staff.requests.document');
 
 Route::get('/staff/requests', [
     StaffRequestController::class,

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RequestController extends Controller
 {
@@ -22,7 +23,14 @@ class RequestController extends Controller
             'purpose' => 'required|string|max:255',
             'details' => 'nullable|string|max:2000',
             'document' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:5120',
-        ]);
+            ]);
+
+        $documentPath = null;
+
+if ($request->hasFile('document')) {
+    $documentPath = $request->file('document')
+        ->store('supporting-documents', 'supabase');
+}
 
         DB::table('requests')->insert([
             'user_id' => Auth::id(),
@@ -42,6 +50,7 @@ class RequestController extends Controller
             'email' => $validated['email'] ?? null,
             'address' => $validated['address'],
             'purpose' => $validated['purpose'],
+            'document_path' => $documentPath,
         ]);
 
         return redirect()

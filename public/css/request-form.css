@@ -250,6 +250,80 @@
     font-size: 18px;
 }
 
+
+/* Required Documents Section */
+.service-requirements {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fffdf2;
+    border: 1px solid #659287;
+    border-left: 5px solid #659287;
+    border-radius: 12px;
+}
+
+.service-requirements h3 {
+    margin: 0 0 14px;
+    color: #222222;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.service-requirements ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.service-requirements li {
+    position: relative;
+    padding: 11px 14px 11px 38px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    color: #333333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.service-requirements li::before {
+    content: "✓";
+    position: absolute;
+    left: 13px;
+    top: 10px;
+    color: #659287;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.service-requirements p {
+    margin: 0;
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.requirements-list[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 576px) {
+    .service-requirements {
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .service-requirements h3 {
+        font-size: 16px;
+    }
+
+    .service-requirements li {
+        padding: 10px 10px 10px 34px;
+        font-size: 13px;
+    }
+}
+
 @media (max-width: 700px) {
     .request-page-heading h1 {
         font-size: 23px;

@@ -100,13 +100,23 @@
 
         <h3>Supporting Document</h3>
 
-        @if (!empty($request->document))
-            <p>
-                Document reference: {{ $request->document }}
-            </p>
-        @else
-            <p>No document recorded for this request.</p>
-        @endif
+        
+<h3>Supporting Document</h3>
+
+@if (!empty($request->document_path))
+    <p>
+        A supporting document has been uploaded.
+    </p>
+
+    <a href="{{ route('staff.requests.document', $request->id) }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="incoming-review-btn">
+        View Supporting Document
+    </a>
+@else
+    <p>No document uploaded for this request.</p>
+@endif
 
         <hr>
 

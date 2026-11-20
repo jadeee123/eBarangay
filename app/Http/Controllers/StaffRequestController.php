@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class StaffRequestController extends Controller
 {
@@ -130,4 +131,50 @@ public function updateStatus(Request $request, $id)
         ->route('staff.requests.show', $id)
         ->with('success', 'Request status and claim date updated successfully.');
 }
+
+
+public function document($id)
+{
+    // Only allow authenticated staff to view documents.
+    if (!auth()->check() || auth()->user()->role !== 'staff') {
+        abort(403, 'Unauthorized access.');
+    }
+
+    $request = DB::table('requests')
+        ->where('id', $id)
+        ->first();
+
+    if (!$request) {
+        abort(404, 'Request not found.');
+    }
+
+    if (empty($request->document_path)) {
+        abort(404, 'No supporting document was uploaded.');
+    }
+
+    $path = $request->document_path;
+
+    if (!Storage::disk('supabase')->exists($path)) {
+        abort(404, 'Supporting document not found in storage.');
+    }
+
+    $contents = Storage::disk('supabase')->get($path);
+    $mimeType = Storage::disk('supabase')->mimeType($path);
+
+    if (!in_array($mimeType, [
+        'application/pdf',
+        'image/jpeg',
+        'image/png',
+    ], true)) {
+        abort(415, 'Unsupported document type.');
+    }
+
+    return response($contents, 200, [
+        'Content-Type' => $mimeType,
+        'Content-Disposition' => 'inline; filename="' . basename($path) . '"',
+        'X-Content-Type-Options' => 'nosniff',
+        'Cache-Control' => 'private, no-store',
+    ]);
+}
+
 }
