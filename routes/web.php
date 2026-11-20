@@ -236,3 +236,4 @@ Route::delete('/staff/announcements/{id}', [
     StaffAnnouncementController::class,
     'destroy'
 ])->name('staff.announcements.destroy');
+

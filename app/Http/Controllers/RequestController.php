@@ -53,14 +53,6 @@ if ($request->hasFile('document')) {
             'purpose' => $validated['purpose'],
             'document_path' => $documentPath,
         ]);
-        
-\Log::info('SUPABASE_DIAGNOSTIC', [
-    'key_set' => filled(config('filesystems.disks.supabase.key')),
-    'secret_set' => filled(config('filesystems.disks.supabase.secret')),
-    'region' => config('filesystems.disks.supabase.region'),
-    'bucket' => config('filesystems.disks.supabase.bucket'),
-    'endpoint' => config('filesystems.disks.supabase.endpoint'),
-]);
 
         return redirect()
             ->route('requests.index')
