@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 
 class RequestController extends Controller
 {
@@ -26,11 +27,36 @@ class RequestController extends Controller
             'document' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:5120',
             ]);
 
-        $documentPath = null;
+      $documentPath = null;
 
 if ($request->hasFile('document')) {
-    $documentPath = $request->file('document')
-        ->store('supporting-documents', 'supabase');
+    $file = $request->file('document');
+
+    $filename = \Illuminate\Support\Str::uuid()
+        . '.' . $file->extension();
+
+    $documentPath = 'supporting-documents/' . $filename;
+
+    $url = rtrim(env('SUPABASE_URL'), '/')
+        . '/storage/v1/object/ebarangay-documents/'
+        . $documentPath;
+
+    $response = Http::withHeaders([
+        'apikey' => env('SUPABASE_SECRET_KEY'),
+        'Authorization' => 'Bearer ' . env('SUPABASE_SECRET_KEY'),
+    ])->withBody(
+        file_get_contents($file->getRealPath()),
+        $file->getMimeType()
+    )->post($url);
+
+    if ($response->failed()) {
+        \Log::error('Supabase upload failed', [
+            'status' => $response->status(),
+            'response' => $response->body(),
+        ]);
+
+        abort(500, 'Supporting document upload failed. Please try again.');
+    }
 }
 
         DB::table('requests')->insert([
