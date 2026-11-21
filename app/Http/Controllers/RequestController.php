@@ -24,40 +24,51 @@ class RequestController extends Controller
             'address' => 'required|string|max:1000',
             'purpose' => 'required|string|max:255',
             'details' => 'nullable|string|max:2000',
-            'document' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:5120',
+            'documents' => 'nullable|array|max:3',
+            'documents.*' => 'file|mimes:pdf,jpg,jpeg,png|max:5120',
             ]);
+      
+$documentPaths = [];
 
-      $documentPath = null;
+if ($request->hasFile('documents')) {
+    foreach ($request->file('documents') as $file) {
+        $filename = \Illuminate\Support\Str::uuid()
+            . '.' . $file->extension();
 
-if ($request->hasFile('document')) {
-    $file = $request->file('document');
+        $path = 'supporting-documents/' . $filename;
 
-    $filename = \Illuminate\Support\Str::uuid()
-        . '.' . $file->extension();
+        $url = rtrim(env('SUPABASE_URL'), '/')
+            . '/storage/v1/object/ebarangay-documents/'
+            . $path;
 
-    $documentPath = 'supporting-documents/' . $filename;
+$response = Http::withHeaders([
+    'apikey' => env('SUPABASE_SECRET_KEY'),
+    'Content-Type' => $file->getMimeType(),
+    'x-upsert' => 'false',
+])->withBody(
+    file_get_contents($file->getRealPath()),
+    $file->getMimeType()
+)->post($url);
 
-    $url = rtrim(env('SUPABASE_URL'), '/')
-        . '/storage/v1/object/ebarangay-documents/'
-        . $documentPath;
+        if ($response->failed()) {
+            \Illuminate\Support\Facades\Log::error(
+                'Supabase document upload failed',
+                [
+                    'status' => $response->status(),
+                    'response' => $response->body(),
+                ]
+            );
 
-    $response = Http::withHeaders([
-        'apikey' => env('SUPABASE_SECRET_KEY'),
-        'Authorization' => 'Bearer ' . env('SUPABASE_SECRET_KEY'),
-    ])->withBody(
-        file_get_contents($file->getRealPath()),
-        $file->getMimeType()
-    )->post($url);
+            abort(
+                500,
+                'Supporting document upload failed. Please try again.'
+            );
+        }
 
-    if ($response->failed()) {
-        \Log::error('Supabase upload failed', [
-            'status' => $response->status(),
-            'response' => $response->body(),
-        ]);
-
-        abort(500, 'Supporting document upload failed. Please try again.');
+        $documentPaths[] = $path;
     }
 }
+
 
         DB::table('requests')->insert([
             'user_id' => Auth::id(),
@@ -77,7 +88,7 @@ if ($request->hasFile('document')) {
             'email' => $validated['email'] ?? null,
             'address' => $validated['address'],
             'purpose' => $validated['purpose'],
-            'document_path' => $documentPath,
+            'documents' => json_encode($documentPaths),
         ]);
 
         return redirect()

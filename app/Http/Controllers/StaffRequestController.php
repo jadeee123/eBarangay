@@ -132,10 +132,8 @@ public function updateStatus(Request $request, $id)
         ->with('success', 'Request status and claim date updated successfully.');
 }
 
-
-public function document($id)
+public function document($id, $index = null)
 {
-    // Only allow authenticated staff to view documents.
     if (!auth()->check() || auth()->user()->role !== 'staff') {
         abort(403, 'Unauthorized access.');
     }
@@ -148,33 +146,72 @@ public function document($id)
         abort(404, 'Request not found.');
     }
 
-    if (empty($request->document_path)) {
-        abort(404, 'No supporting document was uploaded.');
+    $documentPaths = json_decode($request->documents ?? '[]', true) ?? [];
+
+    if (
+        $index === null ||
+        !ctype_digit((string) $index) ||
+        !isset($documentPaths[(int) $index])
+    ) {
+        abort(404, 'Supporting document not found.');
     }
 
-    $path = $request->document_path;
+    $path = $documentPaths[(int) $index];
 
-    if (!Storage::disk('supabase')->exists($path)) {
-        abort(404, 'Supporting document not found in storage.');
+    // Only allow files from our supporting-documents folder.
+    if (
+        !is_string($path) ||
+        !str_starts_with($path, 'supporting-documents/') ||
+        str_contains($path, '..')
+    ) {
+        abort(404, 'Invalid document path.');
     }
 
-    $contents = Storage::disk('supabase')->get($path);
-    $mimeType = Storage::disk('supabase')->mimeType($path);
+    $url = rtrim(env('SUPABASE_URL'), '/')
+        . '/storage/v1/object/ebarangay-documents/'
+        . implode('/', array_map('rawurlencode', explode('/', $path)));
 
-    if (!in_array($mimeType, [
-        'application/pdf',
-        'image/jpeg',
-        'image/png',
-    ], true)) {
+    $secretKey = env('SUPABASE_SECRET_KEY');
+
+    if (empty($secretKey)) {
+        \Illuminate\Support\Facades\Log::error(
+            'Supabase document storage key is not configured.'
+        );
+
+        abort(500, 'Document storage is not configured.');
+    }
+
+    $response = \Illuminate\Support\Facades\Http::withHeaders([
+        'apikey' => $secretKey,
+    ])->get($url);
+
+    if ($response->failed()) {
+        \Illuminate\Support\Facades\Log::error(
+            'Supabase document download failed.',
+            ['status' => $response->status()]
+        );
+
+        abort(404, 'Supporting document could not be retrieved.');
+    }
+
+    $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+    $mimeTypes = [
+        'pdf' => 'application/pdf',
+        'jpg' => 'image/jpeg',
+        'jpeg' => 'image/jpeg',
+        'png' => 'image/png',
+    ];
+
+    if (!isset($mimeTypes[$extension])) {
         abort(415, 'Unsupported document type.');
     }
 
-    return response($contents, 200, [
-        'Content-Type' => $mimeType,
+    return response($response->body(), 200, [
+        'Content-Type' => $mimeTypes[$extension],
         'Content-Disposition' => 'inline; filename="' . basename($path) . '"',
         'X-Content-Type-Options' => 'nosniff',
         'Cache-Control' => 'private, no-store',
     ]);
 }
-
 }

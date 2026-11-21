@@ -155,10 +155,10 @@ Route::patch('/staff/requests/{id}/status', [
     'updateStatus'
 ])->name('staff.requests.updateStatus');
 
-Route::get('/staff/requests/{id}/document', [
-    StaffRequestController::class,
-    'document'
-])->middleware('auth')->name('staff.requests.document');
+Route::get(
+    '/staff/requests/{id}/document/{index}',
+    [StaffRequestController::class, 'document']
+)->name('staff.requests.document');
 
 Route::get('/staff/requests', [
     StaffRequestController::class,

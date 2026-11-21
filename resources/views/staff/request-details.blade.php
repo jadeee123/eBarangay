@@ -1,4 +1,3 @@
-
 @extends('layouts.dashstaff')
 
 @section('title', 'Review Request - eBarangay')
@@ -100,22 +99,28 @@
 
         <h3>Supporting Document</h3>
 
-        
-<h3>Supporting Document</h3>
+<h3>Supporting Documents</h3>
 
-@if (!empty($request->document_path))
-    <p>
-        A supporting document has been uploaded.
-    </p>
+@php
+    $documentPaths = json_decode($request->documents ?? '[]', true) ?? [];
+@endphp
 
-    <a href="{{ route('staff.requests.document', $request->id) }}"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="incoming-review-btn">
-        View Supporting Document
-    </a>
+@if (count($documentPaths) > 0)
+    @foreach ($documentPaths as $index => $documentPath)
+        <p>Supporting Document {{ $index + 1 }}</p>
+
+        <a href="{{ route('staff.requests.document', [
+            'id' => $request->id,
+            'index' => $index
+        ]) }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="incoming-review-btn">
+            View Supporting Document {{ $index + 1 }}
+        </a>
+    @endforeach
 @else
-    <p>No document uploaded for this request.</p>
+    <p>No supporting documents uploaded.</p>
 @endif
 
         <hr>

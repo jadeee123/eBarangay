@@ -1,4 +1,3 @@
-
 @extends('layouts.dashboard')
 
 @section('title', 'Request Form - eBarangay')
@@ -10,8 +9,6 @@
 @section('content')
 
 @php
-    $selectedService = request('service', 'barangay-clearance');
-
     $serviceSlugs = [
         'Barangay Clearance' => 'barangay-clearance',
         'Scholarship Application' => 'scholarship-application',
@@ -19,13 +16,18 @@
         'Business Clearance' => 'business-clearance',
         'Other Services' => 'other-services',
     ];
+
+    $requestedService = old('service', request('service', 'barangay-clearance'));
+
+    $selectedService = $serviceSlugs[$requestedService]
+        ?? $requestedService;
 @endphp
 
 <div class="request-form-page">
 
     <div class="request-page-heading">
         <a href="{{ url('/request') }}" class="back-link">
-            <i class="bx bx-arrow-back"></i>
+        <i class="bx bx-arrow-back"></i>
             Back to Services
         </a>
 
@@ -189,14 +191,18 @@
                 <label for="details">Additional Information</label>
                 <textarea id="details" name="details" rows="4"
                           placeholder="Enter any additional information (optional)">{{ old('details') }}</textarea>
+                        </div>     
+                              
+            <div class="form-group">
+                <label for="documents">Supporting Documents</label>
+                <input type="file"
+                id="documents"
+                name="documents[]"
+                accept=".pdf,.jpg,.jpeg,.png"
+                multiple>
+                <small>Optional. Upload up to 3 files: PDF, JPG, or PNG.</small>
             </div>
 
-            <div class="form-group">
-                <label for="document">Supporting Documents</label>
-                <input type="file" id="document" name="document"
-                       accept=".pdf,.jpg,.jpeg,.png">
-                <small>Optional. Accepted formats: PDF, JPG, and PNG.</small>
-            </div>
         </section>
 
         <div class="form-notice">
@@ -266,5 +272,4 @@ document.addEventListener('DOMContentLoaded', function () {
     updateRequirements();
 });
 </script>
-
 @endsection
